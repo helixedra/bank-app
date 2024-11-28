@@ -1,0 +1,69 @@
+// Variables
+$spacing-step: 4px;
+$spacing-steps: 10; // Кількість кроків, від 0 до 10 * $spacing-step
+
+// Generate padding classes
+@for $i from 0 through $spacing-steps {
+  .p-#{$i} {
+    padding: $i * $spacing-step;
+  }
+
+  .pt-#{$i} {
+    padding-top: $i * $spacing-step;
+  }
+
+  .pr-#{$i} {
+    padding-right: $i * $spacing-step;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: $i * $spacing-step;
+  }
+
+  .pl-#{$i} {
+    padding-left: $i * $spacing-step;
+  }
+
+  .px-#{$i} {
+    padding-left: $i * $spacing-step;
+    padding-right: $i * $spacing-step;
+  }
+
+  .py-#{$i} {
+    padding-top: $i * $spacing-step;
+    padding-bottom: $i * $spacing-step;
+  }
+}
+
+// Generate margin classes
+@for $i from 0 through $spacing-steps {
+  .m-#{$i} {
+    margin: $i * $spacing-step;
+  }
+
+  .mt-#{$i} {
+    margin-top: $i * $spacing-step;
+  }
+
+  .mr-#{$i} {
+    margin-right: $i * $spacing-step;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: $i * $spacing-step;
+  }
+
+  .ml-#{$i} {
+    margin-left: $i * $spacing-step;
+  }
+
+  .mx-#{$i} {
+    margin-left: $i * $spacing-step;
+    margin-right: $i * $spacing-step;
+  }
+
+  .my-#{$i} {
+    margin-top: $i * $spacing-step;
+    margin-bottom: $i * $spacing-step;
+  }
+}

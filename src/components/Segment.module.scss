@@ -1,0 +1,67 @@
+@use "../common" as *;
+@use "sass:color";
+@mixin size($size) {
+  height: $size;
+  line-height: $size;
+
+  &:has(.icon) {
+    padding-right: calc($size/2);
+  }
+}
+.segment {
+  background-color: $gray-2;
+  width: min-content;
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+  border-radius: 56px;
+
+  button {
+    outline: none;
+    border: none;
+  }
+
+  .segment_button {
+    font-size: 16px;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    font-weight: 400;
+    transition: 0.2s ease-in-out;
+    text-wrap: nowrap;
+    border: 2px solid $gray-2;
+  }
+  .active {
+    background-color: white;
+    // border: 2px solid $gray-2;
+  }
+}
+
+//size
+.s {
+  @include size(32px);
+  padding: 0 16px;
+}
+.m {
+  @include size(40px);
+  padding: 0 24px;
+}
+.l {
+  @include size(48px);
+  padding: 0 24px;
+}
+
+//type
+.primary {
+}
+
+.icon {
+  width: 24px;
+  //   height: 24px;
+  margin-right: 8px;
+  img {
+    margin-top: -3px;
+  }
+}

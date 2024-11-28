@@ -1,0 +1,22 @@
+{
+  "id": "7832",
+  "email": "usrgbf@gmail.com",
+  "firstname": "Denzel",
+  "lastname": "Washington",
+  "userpic": "user_avatar_jkgi34msd.jpg",
+  "base_currency": "USD",
+  "accounts": [
+    {
+      "id": "93nmd83jf83jd",
+      "name": "USD Account",
+      "currency": "USD",
+      "balance": "3711.92"
+    },
+    {
+      "id": "9fgkkle090lkr",
+      "name": "EUR Account",
+      "currency": "EUR",
+      "balance": "1527.28"
+    }
+  ]
+}

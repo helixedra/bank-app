@@ -1,16 +1,29 @@
-import { Link } from "react-router-dom";
-export default function Navigation() {
+import { NavLink } from "react-router-dom";
+import UserButton from "./UserButton";
+import NotificationButton from "./NotificationButton";
+export default function Navigation({ data }) {
   return (
     <nav>
       <ul className="desktop_menu">
         <li>
-          <Link to="/">Dashboard</Link>
+          <NavLink to="/">Dashboard</NavLink>
         </li>
         <li>
-          <Link to="/transactions">Transactions</Link>
+          <NavLink to="/transactions">Transactions</NavLink>
         </li>
         <li>
-          <Link to="/settings">Settings</Link>
+          <NavLink to="/services">Services</NavLink>
+        </li>
+        <li>
+          <NavLink to="/settings">Settings</NavLink>
+        </li>
+      </ul>
+      <ul className="user_controls">
+        <li>
+          <NotificationButton />
+        </li>
+        <li>
+          <UserButton userdata={data.userdata} />
         </li>
       </ul>
     </nav>

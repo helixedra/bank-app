@@ -1,0 +1,68 @@
+@use "./../common" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 36px;
+  color: white;
+
+  font-family: "Fira Code";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  width: 300px;
+  height: 200px;
+
+  background: #000000;
+  border-radius: 16px;
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  &_pay_logo {
+    width: 16px;
+    height: 20px;
+    background-image: url("/images/paypass-logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &_logo {
+    width: 37px;
+    height: 23px;
+    background-image: url("/images/mc-logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &_number {
+    font-size: 20px;
+  }
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &_holder {
+      width: fit-content;
+    }
+    &_date {
+      width: fit-content;
+    }
+    &_label {
+      font-size: 10px;
+      opacity: 0.5;
+    }
+    &_value {
+      font-size: 14px;
+    }
+  }
+}

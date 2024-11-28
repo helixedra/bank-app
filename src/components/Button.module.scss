@@ -5,12 +5,12 @@
   line-height: $size;
 
   &:has(.icon) {
-    padding-right: $size;
+    padding-right: calc($size/2);
   }
 }
 
 .button {
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 56px;
   display: flex;
   align-items: center;
@@ -23,19 +23,19 @@
 //size
 .s {
   @include size(32px);
-  padding: 0 24px;
+  padding: 0 16px;
 }
 .m {
   @include size(40px);
-  padding: 0 24px;
+  padding: 0 16px;
 }
 .l {
   @include size(48px);
-  padding: 0 32px;
+  padding: 0 16px;
 }
 .xl {
   @include size(56px);
-  padding: 0 40px;
+  padding: 0 32px;
 }
 
 //type
@@ -56,13 +56,14 @@
 }
 .additional {
   background-color: white;
-  border: 1px solid $black;
+  border: 1px solid $gray-2;
   color: $black;
   &:hover {
-    border-color: color.scale($black, $lightness: 50%);
+    border-color: color.scale($gray-2, $lightness: 50%);
     color: color.scale($black, $lightness: 50%);
   }
 }
 .icon {
-  margin-right: 16px;
+  margin-right: 8px;
+  opacity: 0.5;
 }

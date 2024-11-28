@@ -1,0 +1,57 @@
+// Variables
+$columns: 12;
+$column-width: 96px;
+$gutter: 24px;
+
+// Mixin for generating grid columns
+@mixin make-col($span) {
+  width: calc(($column-width * $span) + ($gutter * ($span - 1)));
+}
+
+// Mixin for offset columns
+@mixin make-offset($offset) {
+  margin-left: calc(($column-width + $gutter) * $offset);
+}
+
+// Grid container
+.container {
+  max-width: calc(($column-width * $columns) + ($gutter * ($columns - 1)));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+}
+
+// Row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
+  justify-content: space-between;
+}
+
+// Column
+.col {
+  flex: 0 0 auto;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+
+  // Full width by default (12 columns)
+  width: 100%;
+}
+
+// Generate column classes
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    @include make-col($i);
+    flex: 0 0 auto;
+  }
+}
+
+// Generate offset classes
+@for $i from 1 through ($columns - 1) {
+  .offset-#{$i} {
+    @include make-offset($i);
+  }
+}

@@ -1,15 +1,30 @@
-import {
-  RiHeartFill,
-  RiArrowRightUpLine,
-  RiArrowLeftDownLine,
-} from "@remixicon/react";
+//Dashboard.jsx
+
+import { RiArrowRightUpLine, RiArrowLeftDownLine } from "@remixicon/react";
 import Button from "./components/Button";
+
+import SubHeader from "./components/SubHeader";
+import userdata from "./database/userdata.json";
+import Accounts from "./components/Accounts";
+import TransactionsShortList from "./components/TransactionsShortList";
+import ExpenseGraph from "./components/ExpenseGraph";
+import PromoSectionsSlider from "./components/PromoSectionsSlider";
 export default function Dashboard() {
   return (
-    <div>
-      <RiHeartFill size={36} color="red" className="my-icon" />
-      Welcome back, User! total balance $ 6,348.55 request Transfer Search
-      transaction Transactions view all
+    <main>
+      total balance $ 6,348.55 request Transfer Search transaction Transactions
+      view all
+      <SubHeader data={userdata} />
+      <div className="container">
+        <div className="row mb-6">
+          <Accounts />
+          <ExpenseGraph />
+        </div>
+        <div className="row">
+          <TransactionsShortList />
+          <PromoSectionsSlider />
+        </div>
+      </div>
       <Button size="l" type="primary" icon={<RiArrowRightUpLine />}>
         Request
       </Button>
@@ -52,6 +67,6 @@ export default function Dashboard() {
       <Button size="xl" type="additional">
         XL Additional
       </Button>
-    </div>
+    </main>
   );
 }
