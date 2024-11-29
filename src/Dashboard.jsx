@@ -1,6 +1,5 @@
 //Dashboard.jsx
 
-import { RiArrowRightUpLine, RiArrowLeftDownLine } from "@remixicon/react";
 import Button from "./components/Button";
 
 import SubHeader from "./components/SubHeader";
@@ -12,8 +11,6 @@ import PromoSectionsSlider from "./components/PromoSectionsSlider";
 export default function Dashboard() {
   return (
     <main>
-      total balance $ 6,348.55 request Transfer Search transaction Transactions
-      view all
       <SubHeader data={userdata} />
       <div className="container">
         <div className="row mb-6">
@@ -25,13 +22,8 @@ export default function Dashboard() {
           <PromoSectionsSlider />
         </div>
       </div>
-      <Button size="l" type="primary" icon={<RiArrowRightUpLine />}>
-        Request
-      </Button>
-      <Button size="l" type="primary" icon={<RiArrowLeftDownLine />}>
-        Transfer
-      </Button>
-      <Button size="s" type="primary">
+
+      {/* <Button size="s" type="primary">
         S Primary
       </Button>
       <Button size="m" type="primary">
@@ -49,9 +41,7 @@ export default function Dashboard() {
       <Button size="m" type="secondary">
         M Secondary
       </Button>
-      <Button size="l" type="secondary">
-        L Secondary
-      </Button>
+
       <Button size="xl" type="secondary">
         XL Secondary
       </Button>
@@ -66,7 +56,7 @@ export default function Dashboard() {
       </Button>
       <Button size="xl" type="additional">
         XL Additional
-      </Button>
+      </Button> */}
     </main>
   );
 }

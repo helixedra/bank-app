@@ -1,6 +1,11 @@
 @use "./../common" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+
+.card_container {
+  perspective: 1000px;
+  // height: 300px;
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -9,19 +14,41 @@
   padding: 24px;
   gap: 36px;
   color: white;
-
+  cursor: pointer;
   font-family: "Fira Code";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
   text-transform: uppercase;
-
   width: 300px;
+  min-width: 300px;
   height: 200px;
-
-  background: #000000;
+  // background: #000000;
   border-radius: 16px;
+  // transform: none;
+  transform: perspective(1px) scale(1);
+
+  &:not(.turn_card):hover {
+    animation: rotateCard 2s ease-in-out infinite;
+    transform: perspective(1px) scale(1);
+  }
+
+  @keyframes rotateCard {
+    0% {
+      transform: none;
+    }
+    60% {
+      transform: none;
+    }
+    80% {
+      transform: rotateY(15deg);
+    }
+    100% {
+      transform: none;
+    }
+  }
+
   &_header {
     display: flex;
     justify-content: space-between;
@@ -44,6 +71,13 @@
   }
   &_number {
     font-size: 20px;
+    text-wrap: nowrap;
+    position: relative;
+    cursor: pointer;
+
+    &:hover .copy_icon {
+      visibility: visible;
+    }
   }
   &_info {
     display: flex;
@@ -64,5 +98,118 @@
     &_value {
       font-size: 14px;
     }
+  }
+}
+.main {
+  background-color: hsla(327, 100%, 50%, 1);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3' /%3E%3C/svg%3E"),
+    radial-gradient(
+      circle at 0% 99%,
+      hsla(11, 100%, 50%, 1) 0%,
+      transparent 67%
+    ),
+    radial-gradient(
+      circle at 46% 94%,
+      hsla(327, 100%, 50%, 1) 0%,
+      transparent 81%
+    ),
+    radial-gradient(
+      circle at 93% 95%,
+      hsla(236, 100%, 23%, 1) 0%,
+      transparent 66%
+    ),
+    radial-gradient(
+      circle at 89% 8%,
+      hsla(206, 100%, 9%, 1) 0%,
+      transparent 150%
+    );
+  background-blend-mode: overlay, normal, normal, normal, normal;
+}
+.virtual {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E"),
+    linear-gradient(to top, #b1b1b1 0%, #999999 100%);
+  background-blend-mode: overlay, normal;
+}
+.gold {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.3'/%3E%3C/svg%3E"),
+    linear-gradient(119.03deg, #d1be8a 16.39%, #978659 94.43%);
+  background-blend-mode: overlay, normal;
+}
+
+.copy_success {
+  margin-top: 24px;
+  animation: fadeOut 3s forwards;
+  position: absolute;
+  background-color: rgb(0, 255, 136);
+  font-size: 14px;
+  color: $black;
+  top: -42px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
+  // right: 50%;
+  // margin-left: auto;
+  // margin-right: auto;
+  // right: 50%;
+  width: min-content;
+  text-wrap: nowrap;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px #0000001e;
+  font-family: "Inter", sans-serif;
+  // text-transform: uppercase;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.copy_icon {
+  font-size: 16px;
+  opacity: 0.5;
+  margin-left: -8px;
+  visibility: hidden;
+}
+
+.magnet_line {
+  width: 100%;
+  height: 40px;
+  background: $black;
+  position: absolute;
+  left: 0px;
+  top: 24px;
+}
+.cvv {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 87px;
+  background-color: #ffffff20;
+  padding: 4px;
+  &_label {
+    font-size: 10px;
+    opacity: 0.5;
+  }
+}
+.turn_card {
+  // transform: rotateY(180deg);
+  // transition: transform 0.5s ease-in-out;
+  animation: fullRotateCard 0.5s ease-in-out forwards !important;
+}
+@keyframes fullRotateCard {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotateY(180deg);
   }
 }

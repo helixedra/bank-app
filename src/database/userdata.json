@@ -8,15 +8,46 @@
   "accounts": [
     {
       "id": "93nmd83jf83jd",
+      "account_id": "usd-account",
       "name": "USD Account",
       "currency": "USD",
       "balance": "3711.92"
     },
     {
       "id": "9fgkkle090lkr",
+      "account_id": "eur-account",
       "name": "EUR Account",
       "currency": "EUR",
       "balance": "1527.28"
+    }
+  ],
+  "cards": [
+    {
+      "id": "7897",
+      "account_id": "usd-account",
+      "card_id": "main",
+      "name": "Main",
+      "card_number": "9811953327259097",
+      "valid_date": "09/29",
+      "cvv_code": "780"
+    },
+    {
+      "id": "7898",
+      "account_id": "usd-account",
+      "card_id": "virtual",
+      "name": "Virtual",
+      "card_number": "5432953800254411",
+      "valid_date": "07/29",
+      "cvv_code": "893"
+    },
+    {
+      "id": "7899",
+      "account_id": "usd-account",
+      "card_id": "gold",
+      "name": "Gold",
+      "card_number": "1233950087156722",
+      "valid_date": "08/29",
+      "cvv_code": "112"
     }
   ]
 }
