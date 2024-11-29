@@ -5,6 +5,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $gray-2;
 
     &_title {
       font-size: 24px;
@@ -13,4 +16,52 @@
     &_actions {
     }
   }
+}
+.list_item {
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+
+  &_image {
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 48px;
+    background-color: $gray-3;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 24px;
+  }
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .merchant_name {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .transaction_date {
+      font-size: 14px;
+      color: $text-grey;
+    }
+    .transaction_amount_currency {
+      font-size: 18px;
+      margin-bottom: 8px;
+      text-align: right;
+      font-weight: 500;
+    }
+    .transaction_amount_main_currency {
+      font-size: 14px;
+      color: $text-grey;
+      text-align: right;
+    }
+  }
+}
+.type_expense {
+  color: #ff5784;
+}
+.type_income {
+  color: #00cb8b;
 }

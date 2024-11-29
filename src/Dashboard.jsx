@@ -8,6 +8,12 @@ import Accounts from "./components/Accounts";
 import TransactionsShortList from "./components/TransactionsShortList";
 import ExpenseGraph from "./components/ExpenseGraph";
 import PromoSectionsSlider from "./components/PromoSectionsSlider";
+import transactions from "./database/transactions.json";
+
+// if(userdata) {
+//   const transations.
+// }
+
 export default function Dashboard() {
   return (
     <main>
@@ -18,45 +24,13 @@ export default function Dashboard() {
           <ExpenseGraph />
         </div>
         <div className="row">
-          <TransactionsShortList />
+          <TransactionsShortList
+            data={transactions.transactions}
+            options={{ base_currency: userdata.base_currency }}
+          />
           <PromoSectionsSlider />
         </div>
       </div>
-
-      {/* <Button size="s" type="primary">
-        S Primary
-      </Button>
-      <Button size="m" type="primary">
-        M Primary
-      </Button>
-      <Button size="l" type="primary">
-        L Primary
-      </Button>
-      <Button size="xl" type="primary">
-        XL Primary
-      </Button>
-      <Button size="s" type="secondary">
-        S Secondary
-      </Button>
-      <Button size="m" type="secondary">
-        M Secondary
-      </Button>
-
-      <Button size="xl" type="secondary">
-        XL Secondary
-      </Button>
-      <Button size="s" type="additional">
-        S Additional
-      </Button>
-      <Button size="m" type="additional">
-        M Additional
-      </Button>
-      <Button size="l" type="additional">
-        L Additional
-      </Button>
-      <Button size="xl" type="additional">
-        XL Additional
-      </Button> */}
     </main>
   );
 }
