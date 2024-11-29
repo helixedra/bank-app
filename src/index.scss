@@ -87,12 +87,16 @@ nav {
 }
 .accounts_container,
 .transactions_shortlist,
-.expense_graph_container,
-.promo_section_slider {
+.expense_graph_container {
   background-color: white;
   border-radius: $border-radius;
   height: fit-content;
 }
 .accounts_container {
   padding: 24px;
+}
+.promo_section_slider {
+  border-radius: $border-radius;
+  height: fit-content;
+  color: white;
 }
