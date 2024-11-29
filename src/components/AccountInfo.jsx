@@ -1,4 +1,6 @@
+import Button from "./Button";
 import currency from "./../database/currency.json";
+import { RiArrowRightUpLine, RiArrowLeftDownLine } from "@remixicon/react";
 
 export default function AccountInfo({ userdata, state }) {
   //   console.log(state);
@@ -57,13 +59,26 @@ export default function AccountInfo({ userdata, state }) {
 
   return (
     <div className="account_info_container">
-      <div className="account_info_label">Total balance</div>
-      <div className="account_info_amount">
-        <span className="account_info_amount_symbol">
-          {currentAccount && currentAccount.symbol}
-        </span>
-        {currentAccount &&
-          new Intl.NumberFormat("en-IN").format(currentAccount.amount)}
+      <div>
+        <div className="account_info_label">Total balance</div>
+        <div className="account_info_amount">
+          <span className="account_info_amount_symbol">
+            {currentAccount && currentAccount.symbol}
+          </span>
+          {currentAccount &&
+            new Intl.NumberFormat("en-IN").format(currentAccount.amount)}
+        </div>
+      </div>
+      <div className="account_actions">
+        <Button size="l" type="primary" icon={<RiArrowRightUpLine />}>
+          Request
+        </Button>
+        <Button size="l" type="primary" icon={<RiArrowLeftDownLine />}>
+          Transfer
+        </Button>
+        <Button size="l" type="secondary">
+          More
+        </Button>
       </div>
     </div>
   );

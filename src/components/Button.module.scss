@@ -7,6 +7,17 @@
   &:has(.icon) {
     padding-right: calc($size/2);
   }
+
+  &:has(.icon_button) {
+    width: $size;
+    height: $size;
+    padding: 0 !important;
+    line-height: 0 !important;
+  }
+}
+.icon_button {
+  // line-height: 0 !important;
+  margin: 0 auto;
 }
 
 .button {
@@ -56,13 +67,14 @@
 }
 .additional {
   background-color: white;
-  border: 1px solid $gray-2;
+  border: 1px solid $gray-3;
   color: $black;
   &:hover {
-    border-color: color.scale($gray-2, $lightness: 50%);
+    border-color: color.scale($gray-3, $lightness: 50%);
     color: color.scale($black, $lightness: 50%);
   }
 }
+
 .icon {
   margin-right: 8px;
   opacity: 0.5;

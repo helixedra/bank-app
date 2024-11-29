@@ -3,7 +3,7 @@ import { useState } from "react";
 import { RiFileCopyLine } from "@remixicon/react";
 
 export default function CreditCard({ card }) {
-  console.log(card.card_id);
+  // console.log(card.card_id);
 
   const [copySuccess, setCopySuccess] = useState(false);
   const [fronSide, setFrontSide] = useState(true);

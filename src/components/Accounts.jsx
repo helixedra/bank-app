@@ -1,17 +1,18 @@
 import { useState, useRef } from "react";
 import {
-  RiArrowRightUpLine,
-  RiArrowLeftDownLine,
   RiArrowRightLine,
   RiArrowLeftLine,
+  RiAddLine,
+  RiSettings4Line,
 } from "@remixicon/react";
-import Button from "./Button";
 import Segment from "./Segment";
 import ImageIcon from "./ImageIcon";
 import CreditCard from "./CreditCard";
 import AccountInfo from "./AccountInfo";
 import userdata from "./../database/userdata.json";
+import Button from "./Button";
 import "./Accounts.scss";
+
 export default function Accounts() {
   const cardSliderRef = useRef();
 
@@ -70,7 +71,7 @@ export default function Accounts() {
     const padding = 16;
     const slider = cardSliderRef.current;
     const slides = slider.childElementCount;
-    const sliderWidth = slides * 308 + slides * padding;
+    const sliderWidth = slides * 308 + slides * padding - 24;
     // const sliderWidth = slider.offsetWidth - 40;
     // const step = parseFloat((sliderWidth / slides).toFixed(1));
     const step = 300 + padding;
@@ -90,15 +91,34 @@ export default function Accounts() {
 
   return (
     <div className="col-8 accounts_container p-6">
-      <Segment
-        buttons={accountSegment}
-        handler={handleAccountSegment}
-        size="l"
-        type="primary"
-      />
+      <div className="flex justify-between">
+        <div className="flex">
+          <Segment
+            buttons={accountSegment}
+            handler={handleAccountSegment}
+            size="l"
+            type="primary"
+          />
+          <div className="ml-6">
+            <Button
+              size="l"
+              type="additional"
+              icon={<RiAddLine />}
+              iconButton={true}
+            ></Button>
+          </div>
+        </div>
+        <Button
+          size="l"
+          type="additional"
+          icon={<RiSettings4Line />}
+          iconButton={true}
+        ></Button>
+      </div>
 
       <div className="account_container flex justify-between">
         <AccountInfo userdata={userdata} state={userAccount} />
+
         <div className="credit_cards_container">
           <div className="slider_buttons">
             <button onClick={() => handleSlider("left")}>
@@ -112,18 +132,6 @@ export default function Accounts() {
             {creditCards}
           </div>
         </div>
-      </div>
-
-      <div className="account_actions">
-        <Button size="l" type="primary" icon={<RiArrowRightUpLine />}>
-          Request
-        </Button>
-        <Button size="l" type="primary" icon={<RiArrowLeftDownLine />}>
-          Transfer
-        </Button>
-        <Button size="l" type="secondary">
-          More
-        </Button>
       </div>
     </div>
   );
