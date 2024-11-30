@@ -1,11 +1,9 @@
+import { useState, useEffect } from "react";
 import Button from "./Button";
 import currency from "./../database/currency.json";
 import { RiArrowRightUpLine, RiArrowLeftDownLine } from "@remixicon/react";
 
 export default function AccountInfo({ userdata, state }) {
-  //   console.log(state);
-  //   console.log(userdata);
-
   const getExchangeRate = (cur) => {
     const found = currency.find((item) => item.currency === cur);
     return found ? parseFloat(found.exchange_rate) : null;
@@ -15,22 +13,13 @@ export default function AccountInfo({ userdata, state }) {
   };
 
   const getAllAccountsData = () => {
-    // console.log();
     const totalBalance = userdata.accounts.map((account) => {
-      //   account.balance;
-      //   account.currency;
-      //   console.log("account.currency", account.currency);
-
       const exchangeRate = getExchangeRate(account.currency);
-
-      //   console.log("exchangeRate:", exchangeRate);
-
       const totalInUSD = parseFloat(account.balance) * exchangeRate;
       return totalInUSD;
     });
 
     return getTotalBalance(totalBalance).toFixed(2);
-    // return accounts; // Возвращаем все счета
   };
 
   const getSymbol = (cur) => {
@@ -47,8 +36,7 @@ export default function AccountInfo({ userdata, state }) {
       amount: getAllAccountsData(),
     };
   } else {
-    const accountData =
-      userdata.accounts.find((account) => account.account_id === state) || null;
+    const accountData = userdata.accounts.find((account) => account.account_id === state) || null;
 
     currentAccount = {
       currency: accountData.currency,
@@ -57,16 +45,34 @@ export default function AccountInfo({ userdata, state }) {
     };
   }
 
+  // Numbers Animations
+  const [displayedAmount, setDisplayedAmount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 150;
+    const finalAmount = currentAccount.amount;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const currentValue = Math.min((progress / duration) * finalAmount, finalAmount);
+      setDisplayedAmount(currentValue);
+
+      if (progress < duration) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  }, [currentAccount.amount]);
+
   return (
     <div className="account_info_container">
       <div>
         <div className="account_info_label">Total balance</div>
         <div className="account_info_amount">
-          <span className="account_info_amount_symbol">
-            {currentAccount && currentAccount.symbol}
-          </span>
-          {currentAccount &&
-            new Intl.NumberFormat("en-IN").format(currentAccount.amount)}
+          <span className="account_info_amount_symbol">{currentAccount && currentAccount.symbol}</span>
+          {new Intl.NumberFormat("en-IN").format(displayedAmount.toFixed(2))}
         </div>
       </div>
       <div className="account_actions">
