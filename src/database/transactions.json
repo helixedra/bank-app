@@ -5,8 +5,9 @@
       "id": "89432324",
       "amount": 150.75,
       "currency": "USD",
-      "timestamp": "2024-11-28T14:32:00Z",
+      "timestamp": "2024-11-30T14:32:00Z",
       "merchant": "Amazon",
+      "merchant_id": "amazon",
       "category": "Shopping",
       "type": "expense"
     },
@@ -14,8 +15,9 @@
       "id": "89432325",
       "amount": 1200.0,
       "currency": "EUR",
-      "timestamp": "2024-11-28T09:15:00Z",
+      "timestamp": "2024-11-29T09:15:00Z",
       "merchant": "Employer Inc.",
+      "merchant_id": "default",
       "category": "Salary",
       "type": "income"
     },
@@ -23,8 +25,9 @@
       "id": "89432326",
       "amount": 45.2,
       "currency": "USD",
-      "timestamp": "2024-11-27T12:15:30Z",
+      "timestamp": "2024-11-28T12:15:30Z",
       "merchant": "Starbucks",
+      "merchant_id": "starbucks",
       "category": "Food & Drink",
       "type": "expense"
     },
@@ -34,6 +37,7 @@
       "currency": "USD",
       "timestamp": "2024-11-27T10:00:00Z",
       "merchant": "Freelance Work",
+      "merchant_id": "default",
       "category": "Income",
       "type": "income"
     },
@@ -43,6 +47,7 @@
       "currency": "USD",
       "timestamp": "2024-11-27T08:45:00Z",
       "merchant": "Netflix",
+      "merchant_id": "netflix",
       "category": "Entertainment",
       "type": "expense"
     },
@@ -52,6 +57,7 @@
       "currency": "USD",
       "timestamp": "2024-11-26T10:30:00Z",
       "merchant": "Client Payment",
+      "merchant_id": "default",
       "category": "Income",
       "type": "income"
     },
@@ -61,6 +67,7 @@
       "currency": "USD",
       "timestamp": "2024-11-26T17:25:00Z",
       "merchant": "Walmart",
+      "merchant_id": "walmart",
       "category": "Shopping",
       "type": "expense"
     },
@@ -70,6 +77,7 @@
       "currency": "USD",
       "timestamp": "2024-11-25T15:20:00Z",
       "merchant": "Spotify",
+      "merchant_id": "spotify",
       "category": "Entertainment",
       "type": "expense"
     },
@@ -79,6 +87,7 @@
       "currency": "USD",
       "timestamp": "2024-11-24T11:00:00Z",
       "merchant": "Uber",
+      "merchant_id": "uber",
       "category": "Transport",
       "type": "expense"
     },
@@ -88,6 +97,7 @@
       "currency": "USD",
       "timestamp": "2024-11-24T10:10:00Z",
       "merchant": "Apple Store",
+      "merchant_id": "apple",
       "category": "Electronics",
       "type": "expense"
     },
@@ -97,6 +107,7 @@
       "currency": "USD",
       "timestamp": "2024-11-22T19:30:00Z",
       "merchant": "McDonald's",
+      "merchant_id": "mcdonalds",
       "category": "Food & Drink",
       "type": "expense"
     },
@@ -106,6 +117,7 @@
       "currency": "USD",
       "timestamp": "2024-11-22T09:00:00Z",
       "merchant": "Stock Dividend",
+      "merchant_id": "default",
       "category": "Investment Income",
       "type": "income"
     },
@@ -115,6 +127,7 @@
       "currency": "USD",
       "timestamp": "2024-11-20T18:40:00Z",
       "merchant": "Best Buy",
+      "merchant_id": "bestbuy",
       "category": "Electronics",
       "type": "expense"
     },
@@ -124,6 +137,7 @@
       "currency": "USD",
       "timestamp": "2024-11-19T14:15:00Z",
       "merchant": "Target",
+      "merchant_id": "target",
       "category": "Shopping",
       "type": "expense"
     },
@@ -133,6 +147,7 @@
       "currency": "USD",
       "timestamp": "2024-11-14T11:35:00Z",
       "merchant": "Zara",
+      "merchant_id": "zara",
       "category": "Shopping",
       "type": "expense"
     },
@@ -142,6 +157,7 @@
       "currency": "USD",
       "timestamp": "2024-11-13T12:45:00Z",
       "merchant": "Shell",
+      "merchant_id": "shell",
       "category": "Gas",
       "type": "expense"
     },
@@ -151,6 +167,7 @@
       "currency": "USD",
       "timestamp": "2024-11-12T08:20:00Z",
       "merchant": "Marriott Hotels",
+      "merchant_id": "marriott",
       "category": "Travel",
       "type": "expense"
     },
@@ -160,6 +177,7 @@
       "currency": "USD",
       "timestamp": "2024-11-12T17:15:00Z",
       "merchant": "Lyft",
+      "merchant_id": "lyft",
       "category": "Transport",
       "type": "expense"
     },
@@ -169,6 +187,7 @@
       "currency": "USD",
       "timestamp": "2024-11-10T20:10:00Z",
       "merchant": "Dunkin'",
+      "merchant_id": "dunkin",
       "category": "Food & Drink",
       "type": "expense"
     },
@@ -178,6 +197,7 @@
       "currency": "USD",
       "timestamp": "2024-11-09T21:30:00Z",
       "merchant": "Costco",
+      "merchant_id": "costco",
       "category": "Shopping",
       "type": "expense"
     }

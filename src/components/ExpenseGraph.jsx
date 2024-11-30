@@ -29,9 +29,7 @@ export default function ExpenseGraph() {
 
   function handleExpenseSegment(event, id) {
     const newState = expenseSegment.map((segment) => {
-      return segment.id === id
-        ? { ...segment, active: true }
-        : { ...segment, active: false };
+      return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
     });
     setExpenseSegment(newState);
     // setExpense(id);
@@ -39,12 +37,7 @@ export default function ExpenseGraph() {
   return (
     <div className="col-4 p-6 expense_graph_container">
       <div className="flex justify-between">
-        <Segment
-          buttons={expenseSegment}
-          handler={handleExpenseSegment}
-          size="l"
-          type="primary"
-        />
+        <Segment buttons={expenseSegment} handler={handleExpenseSegment} size="l" type="primary" />
         <Dropdown />
       </div>
 

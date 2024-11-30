@@ -30,6 +30,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-right: 24px;
+    background-image: url("./images/expense-default.png");
   }
   &_info {
     display: flex;
@@ -60,7 +61,7 @@
   }
 }
 .type_expense {
-  color: #ff5784;
+  //   color: #ff5784;
 }
 .type_income {
   color: #00cb8b;

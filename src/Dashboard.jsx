@@ -24,10 +24,7 @@ export default function Dashboard() {
           <ExpenseGraph />
         </div>
         <div className="row">
-          <TransactionsShortList
-            data={transactions.transactions}
-            options={{ base_currency: userdata.base_currency }}
-          />
+          <TransactionsShortList data={transactions.transactions} options={{ base_currency: userdata.base_currency }} />
           <PromoSectionsSlider />
         </div>
       </div>
