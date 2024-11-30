@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import currency from "./../database/currency.json";
+import getSymbol from "../utils/getSymbol";
 import { RiArrowRightUpLine, RiArrowLeftDownLine } from "@remixicon/react";
 
 export default function AccountInfo({ userdata, state }) {
@@ -22,10 +23,10 @@ export default function AccountInfo({ userdata, state }) {
     return getTotalBalance(totalBalance).toFixed(2);
   };
 
-  const getSymbol = (cur) => {
-    const found = currency.find((item) => item.currency === cur);
-    return found ? found.symbol : null;
-  };
+  // const getSymbol = (cur) => {
+  //   const found = currency.find((item) => item.currency === cur);
+  //   return found ? found.symbol : null;
+  // };
 
   let currentAccount;
 

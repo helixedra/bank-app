@@ -1,30 +1,50 @@
+// import { useState } from "react";
 import { RiArrowDropDownLine } from "@remixicon/react";
-import classes from "./Button.module.scss";
-function DropdownButton({ size, type, icon, children, iconButton = false, arrow = true }) {
+import btnClasses from "./Button.module.scss";
+import classes from "./Dropdown.module.scss";
+
+export default function Dropdown({ size = "l", type = "additional", options = { data: [], visibility: false }, icon, iconButton = false, toggle }) {
+  const currentValue = options.data?.find((option) => option.active);
+  const listItems = options.data?.map((item) => <DropdownItem {...item} key={item.id} />);
+
   return (
-    <button className={`${classes.button} ${classes[size]} ${classes[type]}`}>
-      {iconButton ? <span className={classes.icon_button}>{icon}</span> : icon && <span className={classes.icon}>{icon}</span>}
+    <div className={classes.container}>
+      <DropdownButton size={size} type={type} state={options.visibility} toggle={toggle} icon={icon} iconButton={iconButton}>
+        {iconButton ? icon : currentValue?.name}
+      </DropdownButton>
+      <div className={options.visibility ? `${classes.list}` : `${classes.list} hidden`}>
+        <div className={`${type}`}>{listItems}</div>
+      </div>
+    </div>
+  );
+}
+
+function DropdownButton({ size, type, icon, children, iconButton, arrow = true, state, toggle }) {
+  return (
+    <button onClick={toggle} className={`${btnClasses.button} ${btnClasses[size]} ${btnClasses[type]}`}>
+      {iconButton ? <span className={btnClasses.icon_button}>{icon}</span> : icon && <span className={btnClasses.icon}>{icon}</span>}
+
       {children}
-      <span>{arrow && <RiArrowDropDownLine />}</span>
+
+      {arrow && state ? (
+        <span className={classes.arrow_up}>
+          <RiArrowDropDownLine />
+        </span>
+      ) : (
+        <span className={classes.arrow_down}>
+          <RiArrowDropDownLine />
+        </span>
+      )}
     </button>
   );
 }
 
-function DropdownItem({ text, action }) {
-  return <li onClick={action}>{text}</li>;
-}
-
-export default function Dropdown({ size = "l", options = [], type = "additional", visibility, handler }) {
-  const listItems = options.map((item) => <DropdownItem {...item} key={item.id} action={handler} />);
-
+function DropdownItem({ name, action, before, after }) {
   return (
-    <>
-      <DropdownButton size={size} type={type}>
-        Year
-      </DropdownButton>
-      <div className={visibility ? "dropdown_list" : "dropdown_list hidden"}>
-        <ul className={`${type}`}>{listItems}</ul>
-      </div>
-    </>
+    <button className={classes.list_item} onClick={action}>
+      <span className={classes.list_item_before}>{before}</span>
+      <span className={classes.list_item_text}>{name}</span>
+      <span className={classes.list_item_after}>{after}</span>
+    </button>
   );
 }

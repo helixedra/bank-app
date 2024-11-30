@@ -1,35 +1,13 @@
 import Button from "./Button";
 import classes from "./TransactionsShortList.module.scss";
-import currencyData from "./../database/currency.json";
-import moment from "moment";
-
-// Utilities
-const formatDynamicDate = (dateString) => {
-  const date = moment(dateString);
-  if (date.isSame(moment(), "day")) {
-    return date.format("HH:mm");
-  }
-  if (date.isSame(moment().subtract(1, "days"), "day")) {
-    return `Yesterday, ${date.format("HH:mm")}`;
-  }
-  return date.format("D MMMM, HH:mm");
-};
-
-const getSymbol = (cur) => {
-  const found = currencyData.find((item) => item.currency === cur);
-  return found ? found.symbol : null;
-};
-const exchangeToDefaultCurrency = (defaultCurrency = "USD", currency, amount) => {
-  const selectedCurrency = currencyData.find((item) => item.currency === currency);
-  const convertedAmount = Number(amount) * Number(selectedCurrency.exchange_rate);
-  return convertedAmount;
-};
+import formatDynamicDate from "../utils/formatDynamicDate";
+import getSymbol from "../utils/getSymbol";
+import exchangeToDefaultCurrency from "../utils/exchangeToDefaultCurrency";
 
 // DefaultAmount Component
 function DefaultAmount({ type, currency, amount }) {
   const formattedAmount = amount.toLocaleString(undefined, { maximumFractionDigits: 2 });
   const symbol = getSymbol(currency);
-
   return (
     <>
       {type === "expense" && <span className={classes.type_expense}>{`- ${symbol} ${formattedAmount}`}</span>}
@@ -44,14 +22,11 @@ function BaseCurrencyAmount({ options, currency, type, amount }) {
   // const symbol = getSymbol(currency);
   const convertedAmount = exchangeToDefaultCurrency(options.base_currency, currency, amount);
   const formattedAmount = convertedAmount.toLocaleString(undefined, { maximumFractionDigits: 2 });
-
   return <>{options.base_currency !== currency && `${type === "expense" ? "-" : "+"} ${symbol} ${formattedAmount}`}</>;
 }
 
 // ListItem Component
 function ListItem({ amount, currency, timestamp, merchant, merchant_id, type, options }) {
-  // console.log(moment(timestamp).calendar());
-
   return (
     <div className={classes.list_item}>
       <div
@@ -78,10 +53,8 @@ function ListItem({ amount, currency, timestamp, merchant, merchant_id, type, op
   );
 }
 
+// TransactionsShortList Component
 function TransactionsShortList({ data, options }) {
-  // console.log(data);
-
-  //..
   const transactions = data.slice(0, 5).map((item) => {
     return <ListItem key={item.id} {...item} options={options} />;
   });
