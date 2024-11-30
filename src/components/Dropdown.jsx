@@ -8,7 +8,7 @@ export default function Dropdown({ size = "l", type = "additional", options = { 
   const listItems = options.data?.map((item) => <DropdownItem {...item} key={item.id} />);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.dropdown_container}>
       <DropdownButton size={size} type={type} state={options.visibility} toggle={toggle} icon={icon} iconButton={iconButton}>
         {iconButton ? icon : currentValue?.name}
       </DropdownButton>
