@@ -5,7 +5,11 @@
   line-height: $size;
 
   &:has(.icon) {
-    padding-right: calc($size/2);
+    padding-right: calc($size/1.5);
+  }
+
+  &:has(.after) {
+    padding-left: calc($size/1.5);
   }
 
   &:has(.icon_button) {
@@ -38,11 +42,11 @@
 }
 .m {
   @include size(40px);
-  padding: 0 16px;
+  padding: 0 24px;
 }
 .l {
   @include size(48px);
-  padding: 0 16px;
+  padding: 0 24px;
 }
 .xl {
   @include size(56px);
@@ -78,4 +82,7 @@
 .icon {
   margin-right: 8px;
   opacity: 0.5;
+}
+.after {
+  margin-left: 8px;
 }

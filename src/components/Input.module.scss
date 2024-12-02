@@ -1,0 +1,38 @@
+@use "./../common" as *;
+
+@mixin size($size) {
+  height: $size;
+  line-height: $size;
+
+  &:has(.icon) {
+    padding-right: calc($size/1.5);
+  }
+
+  &:has(.after) {
+    padding-left: calc($size/1.5);
+  }
+}
+
+.input {
+  background-color: white;
+  border: 1px solid $gray-3;
+  color: $black;
+  border-radius: 48px;
+}
+
+//size
+.s {
+  @include size(32px);
+  padding: 0 16px;
+}
+.m {
+  @include size(40px);
+  padding: 0 24px;
+}
+.l {
+  @include size(48px);
+  padding: 0 24px;
+}
+.label {
+  line-height: 40px;
+}

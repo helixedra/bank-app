@@ -6,7 +6,49 @@
   min-width: 300px;
   margin: auto auto;
   overflow: visible;
+  z-index: 7;
+  // display: block;
+  // &::backdrop {
+  //   // margin: auto auto;
+  //   // background: #0000ff4c;
+  // }
+  // transform: none;
 }
+
+// dialog {
+//   animation: modalFadeOut 2s ease-in-out;
+// }
+
+dialog[open] {
+  animation: modalFadeIn 0.1s ease-in-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(0);
+    // display: none;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    // display: block;
+  }
+}
+
+// @keyframes modalFadeOut {
+//   from {
+//     opacity: 1;
+//     transform: scale(1) translateY(0); /* Зберігаємо початкове положення */
+//     // display: block;
+//   }
+//   to {
+//     opacity: 0;
+//     transform: scale(0.5) translateY(0); /* Не зміщуємо вниз */
+//     // display: none;
+//   }
+// }
+
 .primary {
   padding: 24px;
   background-color: white;

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "phone": "+1-202-555-0134",
+    "email": "john.doe@example.com",
+    "userpic": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "phone": "+44-20-7946-0958",
+    "email": "jane.smith@example.co.uk",
+    "userpic": "https://randomuser.me/api/portraits/women/2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Hiroshi Tanaka",
+    "phone": "+81-3-1234-5678",
+    "email": "hiroshi.tanaka@example.jp",
+    "userpic": "https://randomuser.me/api/portraits/men/3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Maria Gonzalez",
+    "phone": "+34-91-123-4567",
+    "email": "maria.gonzalez@example.es",
+    "userpic": "https://randomuser.me/api/portraits/women/4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Chen Wei",
+    "phone": "+86-10-1234-5678",
+    "email": "chen.wei@example.cn",
+    "userpic": "https://randomuser.me/api/portraits/men/5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Liam O'Connor",
+    "phone": "+353-1-234-5678",
+    "email": "liam.oconnor@example.ie",
+    "userpic": "https://randomuser.me/api/portraits/men/6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Aisha Khan",
+    "phone": "+971-50-123-4567",
+    "email": "aisha.khan@example.ae",
+    "userpic": "https://randomuser.me/api/portraits/women/7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Oliver Brown",
+    "phone": "+61-2-1234-5678",
+    "email": "oliver.brown@example.au",
+    "userpic": "https://randomuser.me/api/portraits/men/8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Sofia Rossi",
+    "phone": "+39-06-123-4567",
+    "email": "sofia.rossi@example.it",
+    "userpic": "https://randomuser.me/api/portraits/women/9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Ahmed Hassan",
+    "phone": "+20-2-123-4567",
+    "email": "ahmed.hassan@example.eg",
+    "userpic": "https://randomuser.me/api/portraits/men/10.jpg"
+  }
+]

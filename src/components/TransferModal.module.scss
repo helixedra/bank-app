@@ -17,6 +17,7 @@
   flex-direction: column;
   //   align-items: center;
   justify-content: space-between;
+  width: 100%;
   //   gap: 16px;
 }
 .label {
@@ -74,4 +75,67 @@ input[type="number"] {
   margin: -20px auto -20px auto;
   //   z-index: 10;
   position: relative;
+}
+.transfer_to_container {
+  display: flex !important;
+}
+.contacts {
+  margin-top: 24px;
+  display: flex;
+  //   gap: 16px;
+  //   padding: 24px 0;
+}
+.contact_item {
+  width: 132px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 24px 16px;
+
+  &:hover {
+    background-color: $gray-2;
+    border-radius: $border-radius;
+  }
+
+  &_userpic {
+    width: 56px;
+    height: 56px;
+    border-radius: 56px;
+    background-size: cover;
+  }
+
+  &_name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 16px;
+    width: 100px;
+  }
+  &_more {
+    width: 56px;
+    height: 56px;
+    border-radius: 56px;
+    background-color: $gray-3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.bank_form_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  width: 100%;
+  padding: 24px;
+  & > div {
+    width: 100%;
+  }
+  & input,
+  & button {
+    width: 100%;
+  }
 }

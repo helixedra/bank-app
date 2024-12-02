@@ -17,6 +17,7 @@
   right: 0;
   left: 0;
   z-index: 10;
+  overflow-y: auto;
 }
 
 .list_item {
@@ -60,7 +61,13 @@
 }
 .before {
   margin-right: 16px;
+  img {
+    margin-top: -4px;
+  }
 }
 .after {
   margin-left: 16px;
+}
+.label {
+  line-height: 40px;
 }

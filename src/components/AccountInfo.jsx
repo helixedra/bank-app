@@ -46,7 +46,7 @@ export default function AccountInfo({ userdata, state }) {
 
   const [transferModal, setTransaferModal] = useState(false);
 
-  function handleTransferModal() {
+  function toggleTransferModal() {
     setTransaferModal((prev) => !prev);
   }
 
@@ -62,15 +62,15 @@ export default function AccountInfo({ userdata, state }) {
         <Button size="l" type="primary" icon={<RiArrowRightUpLine />}>
           Request
         </Button>
-        <Button size="l" type="primary" icon={<RiArrowLeftDownLine />} action={handleTransferModal}>
+        <Button size="l" type="primary" icon={<RiArrowLeftDownLine />} action={toggleTransferModal}>
           Transfer
         </Button>
         <Button size="l" type="secondary">
           More
         </Button>
       </div>
-      <Modal visibility={transferModal} handler={handleTransferModal} title="Transfer Money">
-        <TransferModal />
+      <Modal visibility={transferModal} handler={toggleTransferModal} title="Transfer Money">
+        <TransferModal handler={toggleTransferModal} />
       </Modal>
     </div>
   );

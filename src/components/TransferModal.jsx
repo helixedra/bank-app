@@ -1,12 +1,17 @@
 import { useState } from "react";
 import classes from "./TransferModal.module.scss";
-import { RiArrowDownLine } from "@remixicon/react";
+import { RiArrowDownLine, RiContactsBookLine, RiBankLine, RiBankCardLine, RiMoreFill, RiArrowRightLine } from "@remixicon/react";
 import Dropdown from "./Dropdown";
 import ImageIcon from "./ImageIcon";
+import Segment from "./Segment";
 import userdata from "./../database/userdata.json";
 import getSymbol from "../utils/getSymbol";
+import Button from "./Button";
+import contacts from "./../database/contacts.json";
+import countries from "./../database/countries.json";
+import Input from "./Input";
 
-export default function TransferModal() {
+export default function TransferModal({ handler }) {
   const currencyDropdownInitial = [
     { id: "usd", name: "USD", action: () => handleCurrencyDropdown("usd"), before: null, after: null, active: true },
     { id: "eur", name: "EUR", action: () => handleCurrencyDropdown("eur"), before: null, after: null, active: false },
@@ -76,9 +81,48 @@ export default function TransferModal() {
     });
   }
 
-  //   function getSymbolOfSelected(){
-  //     const symbol = currencyDropdownState.data.find(item => item.id ===)
-  //   }
+  const recipientSegmentData = [
+    {
+      id: "contacts",
+      name: "My Contacts",
+      icon: <RiContactsBookLine />,
+      active: true,
+    },
+    {
+      id: "bank",
+      name: "Bank Recipient",
+      icon: <RiBankLine />,
+      active: false,
+    },
+    {
+      id: "card",
+      name: "Card Recipient",
+      icon: <RiBankCardLine />,
+      active: false,
+    },
+  ];
+
+  const recipientComponents = {
+    contacts: <ContactsRecipient />,
+    bank: <BankRecipient />,
+    card: <CardRecipient />,
+  };
+
+  const [recipientSegment, setRecipientSegment] = useState(recipientSegmentData);
+  const [recipient, setRecipient] = useState(recipientComponents.contacts);
+
+  function handleRecipientSegment(event, id) {
+    const newState = recipientSegment.map((segment) => {
+      return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
+    });
+
+    setRecipientSegment(newState);
+    setRecipient(recipientComponents[id]);
+  }
+
+  function submitForm() {
+    console.log("Form Submitted!");
+  }
 
   return (
     <>
@@ -102,7 +146,116 @@ export default function TransferModal() {
       <div className={classes.arrow_inside}>
         <RiArrowDownLine />
       </div>
-      <div className={classes.transfer_to_container}>sad</div>
+      <div className={classes.transfer_to_container}>
+        <div className={classes.amout_container}>
+          <div className={classes.label}>Transfer To</div>
+          <div className="pt-6">
+            <Segment buttons={recipientSegment} handler={handleRecipientSegment} size="l" type="primary" />
+          </div>
+          <div>{recipient}</div>
+        </div>
+      </div>
+      <div className="flex items-center justify-between mt-6">
+        <Button size="l" type="secondary" action={handler}>
+          Cancel
+        </Button>
+        <Button size="l" type="primary" after={<RiArrowRightLine />} action={submitForm}>
+          Continue
+        </Button>
+      </div>
     </>
+  );
+}
+
+function ContactsRecipient() {
+  const myContacts = contacts.slice(0, 6).map((contact) => {
+    return (
+      <div className={classes.contact_item} key={contact.id} onClick={() => alert()}>
+        <div className={classes.contact_item_userpic} style={{ backgroundImage: `url('${contact.userpic}')` }}></div>
+        <div className={classes.contact_item_name}>{contact.name}</div>
+      </div>
+    );
+  });
+  const moreButton = (
+    <div className={classes.contact_item} key={"more-button"} onClick={() => alert("more")}>
+      <div className={classes.contact_item_more}>
+        <RiMoreFill />
+      </div>
+      <div className={classes.contact_item_name}>More</div>
+    </div>
+  );
+
+  return (
+    <div className={classes.contacts}>
+      {myContacts}
+      {moreButton}
+    </div>
+  );
+}
+function BankRecipient() {
+  const [bankRecipient, setBankRecipient] = useState({ first_name: "", last_name: "" });
+
+  function handleBankRecipient(value, name) {
+    setBankRecipient((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  }
+
+  const countriesDropdownData = countries.map((item) => {
+    return {
+      ...item,
+      name: item.country,
+      action: () => handleCountriesDropdown(item.id),
+      active: false,
+    };
+  });
+
+  const countriesDropdownDataInitial = [{ id: 0, name: "Select country", action: () => handleCountriesDropdown(0), active: true }, ...countriesDropdownData];
+
+  const [countriesDropdown, setCountriesDropdown] = useState({ data: countriesDropdownDataInitial, visibility: false });
+
+  function handleCountriesDropdown(id) {
+    setCountriesDropdown((prev) => {
+      const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
+      const newVisibility = !prev.visibility;
+      return { data: newData, visibility: newVisibility };
+    });
+    // Actions
+  }
+
+  function toggleCountriesDropdown() {
+    setCountriesDropdown((prev) => {
+      return { data: prev.data, visibility: !prev.visibility };
+    });
+  }
+
+  return (
+    <div className={classes.bank_form_container}>
+      <div>
+        <Dropdown options={countriesDropdown} toggle={toggleCountriesDropdown} listHeight={200} label="Country" />
+        <Input label="Account Number" placeholder="AB 0000 0000 0000 0000 0000 0000" />
+      </div>
+      <div>
+        <Input label="First Name" value={bankRecipient.first_name} handler={handleBankRecipient} name="first_name" />
+        <Input label="Last Name" value={bankRecipient.last_name} handler={handleBankRecipient} name="last_name" />
+      </div>
+    </div>
+  );
+}
+
+function CardRecipient() {
+  return (
+    <div className={classes.bank_form_container}>
+      <div>
+        <Input type="number" label="Card Number" placeholder="0000 0000 0000 0000" />
+      </div>
+      <div>
+        <Input label="First Name" />
+        <Input label="Last Name" />
+      </div>
+    </div>
   );
 }

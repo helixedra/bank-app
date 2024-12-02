@@ -3,17 +3,20 @@ import { RiArrowDropDownLine } from "@remixicon/react";
 import btnClasses from "./Button.module.scss";
 import classes from "./Dropdown.module.scss";
 
-export default function Dropdown({ size = "l", type = "additional", options = { data: [], visibility: false }, icon, iconButton = false, toggle }) {
+export default function Dropdown({ size = "l", type = "additional", options = { data: [], visibility: false }, icon, iconButton = false, toggle, listHeight = null, label = null }) {
   const currentValue = options.data?.find((option) => option.active);
   const listItems = options.data?.map((item) => <DropdownItem {...item} key={item.id} />);
 
   return (
     <div className={classes.dropdown_container}>
+      {label && <div className={classes.label}>{label}</div>}
       <DropdownButton size={size} type={type} state={options.visibility} toggle={toggle} icon={icon} iconButton={iconButton} before={currentValue?.before} after={currentValue?.after}>
         {iconButton ? icon : currentValue?.name}
       </DropdownButton>
       <div className={options.visibility ? `${classes.list}` : `${classes.list} hidden`}>
-        <div className={`${type}`}>{listItems}</div>
+        <div className={`${type}`} style={listHeight ? { height: `${listHeight}px` } : undefined}>
+          {listItems}
+        </div>
       </div>
     </div>
   );
