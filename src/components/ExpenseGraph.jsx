@@ -62,8 +62,7 @@ export default function ExpenseGraph() {
   return (
     <div className="col-4 p-6 expense_graph_container">
       <div className="flex justify-between items-center">
-        <span style={{ fontSize: "24px" }}>Statistics</span>
-
+        <h2>Statistics</h2>
         {/* <Segment buttons={expenseSegment} handler={handleExpenseSegment} size="l" type="primary" /> */}
         <Dropdown options={rangeDropdownState} toggle={toggleRangeDropdown} />
       </div>

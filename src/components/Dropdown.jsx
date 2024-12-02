@@ -9,7 +9,7 @@ export default function Dropdown({ size = "l", type = "additional", options = { 
 
   return (
     <div className={classes.dropdown_container}>
-      <DropdownButton size={size} type={type} state={options.visibility} toggle={toggle} icon={icon} iconButton={iconButton}>
+      <DropdownButton size={size} type={type} state={options.visibility} toggle={toggle} icon={icon} iconButton={iconButton} before={currentValue?.before} after={currentValue?.after}>
         {iconButton ? icon : currentValue?.name}
       </DropdownButton>
       <div className={options.visibility ? `${classes.list}` : `${classes.list} hidden`}>
@@ -19,13 +19,13 @@ export default function Dropdown({ size = "l", type = "additional", options = { 
   );
 }
 
-function DropdownButton({ size, type, icon, children, iconButton, arrow = true, state, toggle }) {
+function DropdownButton({ size, type, icon, children, iconButton, arrow = true, state, toggle, before, after }) {
   return (
     <button onClick={toggle} className={`${btnClasses.button} ${btnClasses[size]} ${btnClasses[type]}`}>
       {iconButton ? <span className={btnClasses.icon_button}>{icon}</span> : icon && <span className={btnClasses.icon}>{icon}</span>}
-
-      {children}
-
+      {before && <span className={classes.before}>{before}</span>}
+      <span className={classes.value}>{children}</span>
+      {after && <span>{after}</span>}
       {arrow && state ? (
         <span className={classes.arrow_up}>
           <RiArrowDropDownLine />

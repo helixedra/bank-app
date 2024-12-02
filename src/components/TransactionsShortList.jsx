@@ -62,9 +62,9 @@ function TransactionsShortList({ data, options }) {
   return (
     <div className={`${classes.transactions} col-8 p-6 transactions_shortlist`}>
       <div className={classes.transactions_header}>
-        <div className={classes.transactions_header_title}>Recent transactions</div>
+        <h2>Recent transactions</h2>
         <div className={classes.transactions_header_actions}>
-          <Button type="secondary">More</Button>
+          <Button type="secondary">View More</Button>
         </div>
       </div>
 
