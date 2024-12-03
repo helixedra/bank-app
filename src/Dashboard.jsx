@@ -1,13 +1,16 @@
 //Dashboard.jsx
 import SubHeader from "./components/SubHeader";
-import userdata from "./database/userdata.json";
+// import userdata from "./database/userdata.json";
 import Accounts from "./components/Accounts";
 import TransactionsShortList from "./components/TransactionsShortList";
 import ExpenseGraph from "./components/ExpenseGraph";
 import PromoSectionsSlider from "./components/PromoSectionsSlider";
-import transactions from "./database/transactions.json";
+// import transactions from "./database/transactions.json";
+import { useSelector } from "react-redux";
 
 export default function Dashboard() {
+  const userdata = useSelector((state) => state.userdata);
+  const transactions = useSelector((state) => state.transactions);
   return (
     <main>
       <SubHeader data={userdata} />

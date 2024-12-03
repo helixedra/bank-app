@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./TransferModal.module.scss";
 import { RiArrowDownLine, RiContactsBookLine, RiBankLine, RiBankCardLine, RiMoreFill, RiArrowRightLine } from "@remixicon/react";
 import Dropdown from "./Dropdown";
@@ -10,6 +10,7 @@ import Button from "./Button";
 import contacts from "./../database/contacts.json";
 import countries from "./../database/countries.json";
 import Input from "./Input";
+import { v4 as uuidv4 } from "uuid";
 
 export default function TransferModal({ handler }) {
   const currencyDropdownInitial = [
@@ -53,10 +54,11 @@ export default function TransferModal({ handler }) {
     });
     // Actions
     // setPeriod(id);
+    handleForm(id, "transfer_from");
   }
 
   function handleCurrencyDropdown(id) {
-    console.log(id);
+    // console.log(id);
 
     // Update state
     setCurrencyDropdownState((prev) => {
@@ -67,6 +69,7 @@ export default function TransferModal({ handler }) {
     // Actions
     // setPeriod(id);
     setSymbol(getSymbol(id.toUpperCase()));
+    handleForm(id.toUpperCase(), "currency");
   }
 
   function toggleAccountsDropdown() {
@@ -118,11 +121,54 @@ export default function TransferModal({ handler }) {
 
     setRecipientSegment(newState);
     setRecipient(recipientComponents[id]);
+    console.log(id);
+  }
+
+  const initialFormData = {
+    amount: "",
+    transfer_from: "usd-account",
+    transfer_to: "contacts",
+    id: uuidv4(),
+    currency: "USD",
+    timestamp: "",
+    merchant: "Bank Transfer",
+    merchant_id: "transfer",
+    category: "Transfer",
+    type: "expense",
+    status: "pending",
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  function handleForm(value, type) {
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [type]: value,
+      };
+    });
+    setTimestamp();
+  }
+
+  function setTimestamp() {
+    const currentDateTime = new Date().toISOString();
+
+    setFormData((prev) => {
+      return {
+        ...prev,
+        timestamp: currentDateTime,
+      };
+    });
   }
 
   function submitForm() {
-    console.log("Form Submitted!");
+    console.log(formData);
+    console.log("Successful POPUP");
   }
+
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
 
   return (
     <>
@@ -131,7 +177,7 @@ export default function TransferModal({ handler }) {
           <div className={classes.label}>Amount</div>
           <div className={classes.input}>
             <span className={classes.symbol}>{symbol}</span>
-            <input className={classes.amount_input} type="number" placeholder="0.00" />
+            <input className={classes.amount_input} type="number" placeholder="0.00" value={formData.amount} onChange={(e) => handleForm(e.target.value, "amount")} />
             <Dropdown options={currencyDropdownState} toggle={toggleCurrencyDropdown} />
           </div>
         </div>
