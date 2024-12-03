@@ -9,7 +9,8 @@
       "merchant": "Amazon",
       "merchant_id": "amazon",
       "category": "Shopping",
-      "type": "expense"
+      "type": "expense",
+      "status": "pending"
     },
     {
       "id": "89432325",
@@ -19,7 +20,8 @@
       "merchant": "Employer Inc.",
       "merchant_id": "default",
       "category": "Salary",
-      "type": "income"
+      "type": "income",
+      "status": "completed"
     },
     {
       "id": "89432326",
@@ -29,7 +31,8 @@
       "merchant": "Starbucks",
       "merchant_id": "starbucks",
       "category": "Food & Drink",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432327",
@@ -39,7 +42,8 @@
       "merchant": "Freelance Work",
       "merchant_id": "default",
       "category": "Income",
-      "type": "income"
+      "type": "income",
+      "status": "completed"
     },
     {
       "id": "89432328",
@@ -49,7 +53,8 @@
       "merchant": "Netflix",
       "merchant_id": "netflix",
       "category": "Entertainment",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432329",
@@ -59,7 +64,8 @@
       "merchant": "Client Payment",
       "merchant_id": "default",
       "category": "Income",
-      "type": "income"
+      "type": "income",
+      "status": "completed"
     },
     {
       "id": "89432330",
@@ -69,7 +75,8 @@
       "merchant": "Walmart",
       "merchant_id": "walmart",
       "category": "Shopping",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432331",
@@ -79,7 +86,8 @@
       "merchant": "Spotify",
       "merchant_id": "spotify",
       "category": "Entertainment",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432332",
@@ -89,7 +97,8 @@
       "merchant": "Uber",
       "merchant_id": "uber",
       "category": "Transport",
-      "type": "expense"
+      "type": "expense",
+      "status": "rejected"
     },
     {
       "id": "89432333",
@@ -99,7 +108,8 @@
       "merchant": "Apple Store",
       "merchant_id": "apple",
       "category": "Electronics",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432334",
@@ -109,7 +119,8 @@
       "merchant": "McDonald's",
       "merchant_id": "mcdonalds",
       "category": "Food & Drink",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432335",
@@ -119,7 +130,8 @@
       "merchant": "Stock Dividend",
       "merchant_id": "default",
       "category": "Investment Income",
-      "type": "income"
+      "type": "income",
+      "status": "completed"
     },
     {
       "id": "89432336",
@@ -129,7 +141,8 @@
       "merchant": "Best Buy",
       "merchant_id": "bestbuy",
       "category": "Electronics",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432337",
@@ -139,7 +152,8 @@
       "merchant": "Target",
       "merchant_id": "target",
       "category": "Shopping",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432338",
@@ -149,7 +163,8 @@
       "merchant": "Zara",
       "merchant_id": "zara",
       "category": "Shopping",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432339",
@@ -159,7 +174,8 @@
       "merchant": "Shell",
       "merchant_id": "shell",
       "category": "Gas",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432340",
@@ -169,7 +185,8 @@
       "merchant": "Marriott Hotels",
       "merchant_id": "marriott",
       "category": "Travel",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432341",
@@ -179,7 +196,8 @@
       "merchant": "Lyft",
       "merchant_id": "lyft",
       "category": "Transport",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432342",
@@ -189,7 +207,8 @@
       "merchant": "Dunkin'",
       "merchant_id": "dunkin",
       "category": "Food & Drink",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
     },
     {
       "id": "89432343",
@@ -199,7 +218,30 @@
       "merchant": "Costco",
       "merchant_id": "costco",
       "category": "Shopping",
-      "type": "expense"
+      "type": "expense",
+      "status": "completed"
+    },
+    {
+      "id": "89432344",
+      "amount": 13.5,
+      "currency": "USD",
+      "timestamp": "2024-11-10T20:10:00Z",
+      "merchant": "Dunkin'",
+      "merchant_id": "dunkin",
+      "category": "Food & Drink",
+      "type": "expense",
+      "status": "completed"
+    },
+    {
+      "id": "89432345",
+      "amount": 350.75,
+      "currency": "USD",
+      "timestamp": "2024-11-09T21:30:00Z",
+      "merchant": "Costco",
+      "merchant_id": "costco",
+      "category": "Shopping",
+      "type": "expense",
+      "status": "completed"
     }
   ]
 }

@@ -14,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Dashboard data={{ userdata }} />} />
           <Route path="/transactions" element={<Transactions />} />
+          <Route path="/transactions/:page" element={<Transactions />} />
           <Route path="/services" element={<Services />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>

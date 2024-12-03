@@ -1,0 +1,15 @@
+@use "./../common" as *;
+@use "./Input.module.scss" as *;
+
+.search_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search_icon {
+  position: absolute;
+  left: 16px;
+}
+.input {
+  padding-left: 48px;
+}

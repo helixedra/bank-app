@@ -1,29 +1,10 @@
-import Button from "./Button";
+import ButtonLink from "./ButtonLink";
 import classes from "./TransactionsShortList.module.scss";
-import formatDynamicDate from "../utils/formatDynamicDate";
-import getSymbol from "../utils/getSymbol";
-import exchangeToDefaultCurrency from "../utils/exchangeToDefaultCurrency";
-
-// DefaultAmount Component
-function DefaultAmount({ type, currency, amount }) {
-  const formattedAmount = amount.toLocaleString(undefined, { maximumFractionDigits: 2 });
-  const symbol = getSymbol(currency);
-  return (
-    <>
-      {type === "expense" && <span className={classes.type_expense}>{`- ${symbol} ${formattedAmount}`}</span>}
-      {type === "income" && <span className={classes.type_income}>{`+ ${symbol} ${formattedAmount}`}</span>}
-    </>
-  );
-}
-
-// BaseCurrencyAmount Component
-function BaseCurrencyAmount({ options, currency, type, amount }) {
-  const symbol = getSymbol("USD");
-  // const symbol = getSymbol(currency);
-  const convertedAmount = exchangeToDefaultCurrency(options.base_currency, currency, amount);
-  const formattedAmount = convertedAmount.toLocaleString(undefined, { maximumFractionDigits: 2 });
-  return <>{options.base_currency !== currency && `${type === "expense" ? "-" : "+"} ${symbol} ${formattedAmount}`}</>;
-}
+import { formatDynamicDate } from "../utils/formatDynamicDate";
+// import getSymbol from "../utils/getSymbol";
+// import exchangeToDefaultCurrency from "../utils/exchangeToDefaultCurrency";
+import DefaultAmount from "./DefaultAmount";
+import BaseCurrencyAmount from "./BaseCurrencyAmount";
 
 // ListItem Component
 function ListItem({ amount, currency, timestamp, merchant, merchant_id, type, options }) {
@@ -64,7 +45,9 @@ function TransactionsShortList({ data, options }) {
       <div className={classes.transactions_header}>
         <h2>Recent transactions</h2>
         <div className={classes.transactions_header_actions}>
-          <Button type="secondary">View More</Button>
+          <ButtonLink type="secondary" to={"/transactions"}>
+            View More
+          </ButtonLink>
         </div>
       </div>
 

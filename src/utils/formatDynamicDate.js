@@ -11,4 +11,7 @@ const formatDynamicDate = (dateString) => {
   return date.format("D MMMM, HH:mm");
 };
 
-export default formatDynamicDate;
+const getTime = (dateString) => moment(dateString).format("HH:mm");
+const getDateFormated = (dateString) => moment(dateString).format("D MMMM, YYYY");
+
+export { formatDynamicDate, getTime, getDateFormated };

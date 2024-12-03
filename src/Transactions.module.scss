@@ -1,0 +1,93 @@
+@use "./common" as *;
+
+.transactions {
+  background-color: white;
+  border-radius: $border-radius;
+  padding: 24px;
+  margin-top: 24px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $gray-2;
+
+    & > div {
+      display: inherit;
+      gap: 16px;
+    }
+  }
+}
+.image {
+  width: 48px;
+  height: 48px;
+  border-radius: 48px;
+  background-size: cover;
+  margin-right: 24px;
+}
+.transation_item {
+  display: flex;
+  //   justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px;
+  border-bottom: 1px solid $gray-2;
+  cursor: pointer;
+  &:hover {
+    background-color: $gray-2;
+    border-radius: 8px;
+    // border: 1px solid #ffffff00;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.main_info {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.additional_info {
+  font-size: 14px;
+  color: $text-grey;
+}
+.info {
+  width: 385px;
+}
+.date {
+  //   width: 280px;
+  flex-grow: 1;
+}
+.status {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+.amount {
+  width: 200px;
+  text-align: right;
+}
+.status_item {
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 48px;
+  height: 40px;
+}
+.pending {
+  color: #ff6a00;
+  background: rgba(255, 106, 0, 0.1);
+}
+.completed {
+  color: #00a452;
+  background: rgba(0, 255, 128, 0.2);
+}
+.rejected {
+  color: #ff0000;
+  background: rgba(255, 0, 0, 0.2);
+}
+.empty_state {
+  margin: 0 auto;
+  padding: 48px;
+  text-align: center;
+  color: $text-grey;
+}
