@@ -123,3 +123,14 @@ h2 {
   font-size: 24px;
   font-weight: 500;
 }
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: $bg-green !important;
+  color: $text-green !important;
+}
+.Toastify__progress-bar--success {
+  background-color: $text-green !important;
+}
+.Toastify__close-button {
+  color: $text-green !important;
+}

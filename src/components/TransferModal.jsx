@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "./TransferModal.module.scss";
 import { RiArrowDownLine, RiContactsBookLine, RiBankLine, RiBankCardLine, RiMoreFill, RiArrowRightLine } from "@remixicon/react";
 import Dropdown from "./Dropdown";
@@ -11,6 +11,8 @@ import contacts from "./../database/contacts.json";
 import countries from "./../database/countries.json";
 import Input from "./Input";
 import { v4 as uuidv4 } from "uuid";
+import { toast, Bounce } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 export default function TransferModal({ handler }) {
   const currencyDropdownInitial = [
@@ -161,9 +163,36 @@ export default function TransferModal({ handler }) {
     });
   }
 
+  function validateForm() {
+    if (formData.amount !== "" && formData.timestamp !== "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // const notify = () => toast("Wow so easy!");
+
   function submitForm() {
     console.log(formData);
-    console.log("Successful POPUP");
+    if (validateForm()) {
+      // toast("Transfer successfully sent!");
+      toast.success("Transfer successfully sent!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+      });
+      // console.log("Successful POPUP");
+      handler();
+    } else {
+      toast("Error!");
+      // console.log("Error");
+    }
   }
 
   // useEffect(() => {

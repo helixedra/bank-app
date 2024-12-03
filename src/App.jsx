@@ -5,6 +5,8 @@ import Transactions from "./Transactions";
 import Settings from "./Settings";
 import Services from "./Services";
 import userdata from "./database/userdata.json"; // delete
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import store from "./store/store";
 import { Provider } from "react-redux";
@@ -14,6 +16,7 @@ export default function App() {
     <>
       <div className="wrapper">
         <Provider store={store}>
+          <ToastContainer />
           <Navigation data={{ userdata }} />
           <Routes>
             <Route path="/" element={<Dashboard data={{ userdata }} />} />
