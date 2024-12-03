@@ -5,6 +5,7 @@ import { formatDynamicDate } from "../utils/formatDynamicDate";
 // import exchangeToDefaultCurrency from "../utils/exchangeToDefaultCurrency";
 import DefaultAmount from "./DefaultAmount";
 import BaseCurrencyAmount from "./BaseCurrencyAmount";
+import { useCallback, useEffect, useState } from "react";
 
 // ListItem Component
 function ListItem({ amount, currency, timestamp, merchant, merchant_id, type, options }) {
@@ -36,9 +37,27 @@ function ListItem({ amount, currency, timestamp, merchant, merchant_id, type, op
 
 // TransactionsShortList Component
 function TransactionsShortList({ data, options }) {
-  const transactions = data.slice(0, 5).map((item) => {
-    return <ListItem key={item.id} {...item} options={options} />;
-  });
+  const [delayedData, setDelayedData] = useState(data);
+
+  // Sort transactions by date
+  const sortedTransactionsByDate = useCallback(() => {
+    return [...delayedData].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  }, [delayedData]);
+
+  // Update delayedData with a 5-second delay when data changes
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setDelayedData(data);
+    }, 5000); // 5-second delay
+
+    return () => clearTimeout(timeoutId); // Cleanup timeout on component unmount or data change
+  }, [data]);
+
+  const transactions = sortedTransactionsByDate()
+    .slice(0, 5)
+    .map((item) => {
+      return <ListItem key={item.id} {...item} options={options} />;
+    });
 
   return (
     <div className={`${classes.transactions} col-8 p-6 transactions_shortlist`}>

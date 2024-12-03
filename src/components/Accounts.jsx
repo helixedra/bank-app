@@ -1,19 +1,17 @@
 import { useState, useRef } from "react";
-import {
-  RiArrowRightLine,
-  RiArrowLeftLine,
-  RiAddLine,
-  RiSettings4Line,
-} from "@remixicon/react";
+import { RiArrowRightLine, RiArrowLeftLine, RiAddLine, RiSettings4Line } from "@remixicon/react";
 import Segment from "./Segment";
 import ImageIcon from "./ImageIcon";
 import CreditCard from "./CreditCard";
 import AccountInfo from "./AccountInfo";
-import userdata from "./../database/userdata.json";
+// import userdata from "./../database/userdata.json";
 import Button from "./Button";
 import "./Accounts.scss";
+import { useSelector } from "react-redux";
 
 export default function Accounts() {
+  const userdata = useSelector((state) => state.userdata);
+
   const cardSliderRef = useRef();
 
   const creditCards = userdata.cards.map((card) => {
@@ -30,25 +28,13 @@ export default function Accounts() {
     {
       id: "usd-account",
       name: "USD",
-      icon: (
-        <ImageIcon
-          image="/images/us-flag.png"
-          size={{ width: "24px", height: "24px" }}
-          title="USD Account"
-        />
-      ),
+      icon: <ImageIcon image="/images/us-flag.png" size={{ width: "24px", height: "24px" }} title="USD Account" />,
       active: false,
     },
     {
       id: "eur-account",
       name: "EUR",
-      icon: (
-        <ImageIcon
-          image="/images/eu-flag.png"
-          size={{ width: "24px", height: "24px" }}
-          title="EUR Account"
-        />
-      ),
+      icon: <ImageIcon image="/images/eu-flag.png" size={{ width: "24px", height: "24px" }} title="EUR Account" />,
       active: false,
     },
   ];
@@ -58,9 +44,7 @@ export default function Accounts() {
 
   function handleAccountSegment(event, id) {
     const newState = accountSegment.map((segment) => {
-      return segment.id === id
-        ? { ...segment, active: true }
-        : { ...segment, active: false };
+      return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
     });
 
     setAccountSegment(newState);
@@ -93,27 +77,12 @@ export default function Accounts() {
     <div className="col-8 accounts_container p-6">
       <div className="flex justify-between">
         <div className="flex">
-          <Segment
-            buttons={accountSegment}
-            handler={handleAccountSegment}
-            size="l"
-            type="primary"
-          />
+          <Segment buttons={accountSegment} handler={handleAccountSegment} size="l" type="primary" />
           <div className="ml-6">
-            <Button
-              size="l"
-              type="additional"
-              icon={<RiAddLine />}
-              iconButton={true}
-            ></Button>
+            <Button size="l" type="additional" icon={<RiAddLine />} iconButton={true}></Button>
           </div>
         </div>
-        <Button
-          size="l"
-          type="additional"
-          icon={<RiSettings4Line />}
-          iconButton={true}
-        ></Button>
+        <Button size="l" type="additional" icon={<RiSettings4Line />} iconButton={true}></Button>
       </div>
 
       <div className="account_container flex justify-between">

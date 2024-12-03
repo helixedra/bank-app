@@ -2,20 +2,33 @@ import Button from "./components/Button";
 import { RiPieChartLine, RiSearchLine, RiEqualizer2Line, RiExportLine, RiTimeFill, RiCheckDoubleLine, RiCloseCircleFill } from "@remixicon/react";
 import classes from "./Transactions.module.scss";
 import SearchInput from "./components/SearchInput";
-import transactionsData from "./database/transactions.json";
+// import transactionsData from "./database/transactions.json";
 import userdata from "./database/userdata.json";
 import { getTime, getDateFormated } from "./utils/formatDynamicDate";
 import BaseCurrencyAmount from "./components/BaseCurrencyAmount";
 import DefaultAmount from "./components/DefaultAmount";
 import { useParams } from "react-router-dom";
 import PaginationControls from "./components/PaginationControls";
+import { useSelector } from "react-redux";
+import { useCallback } from "react";
 
 export default function Transactions() {
+  const transactionsData = useSelector((state) => state.transactions);
+
+  // console.log(transactionsData.transactions);
+
+  const sortedTransactionsByDate = useCallback(() => {
+    return [...transactionsData.transactions].sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+  }, [transactionsData]);
+
+  // const sortedTransactionsByDate = ;
+  // console.log(sortedTransactionsByDate);
+
   const { page } = useParams();
   const currentPage = parseInt(page, 10) || 1;
 
   const itemsPerPage = 10;
-  const transactions = transactionsData.transactions?.map((item) => {
+  const transactions = sortedTransactionsByDate().map((item) => {
     return <TransactionItem data={item} key={item.id} options={{ base_currency: userdata.base_currency }} />;
   });
   const paginatedData = transactions.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);

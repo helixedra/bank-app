@@ -125,12 +125,20 @@ h2 {
 }
 
 .Toastify__toast-theme--colored.Toastify__toast--success {
-  background-color: $bg-green !important;
-  color: $text-green !important;
+  background-color: $text-green !important;
+  color: white !important;
 }
 .Toastify__progress-bar--success {
-  background-color: $text-green !important;
+  background-color: #ffffff9a !important;
 }
 .Toastify__close-button {
-  color: $text-green !important;
+  color: white !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  color: white !important;
+  background: #ff0000;
+}
+.Toastify__progress-bar--error {
+  background-color: #ffffff9a !important;
 }

@@ -12,7 +12,9 @@ import countries from "./../database/countries.json";
 import Input from "./Input";
 import { v4 as uuidv4 } from "uuid";
 import { toast, Bounce } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { addTransaction } from "./../store/transactionsSlice";
+import { updateBalance } from "../store/userSlice";
 
 export default function TransferModal({ handler }) {
   const currencyDropdownInitial = [
@@ -133,16 +135,16 @@ export default function TransferModal({ handler }) {
     id: uuidv4(),
     currency: "USD",
     timestamp: "",
-    merchant: "Bank Transfer",
-    merchant_id: "transfer",
-    category: "Transfer",
-    type: "expense",
-    status: "pending",
   };
 
   const [formData, setFormData] = useState(initialFormData);
 
   function handleForm(value, type) {
+    if (type === "amount") {
+      value = value.replace(/[^0-9.]/g, "");
+      // value = parseFloat(value).toFixed(2);
+    }
+
     setFormData((prev) => {
       return {
         ...prev,
@@ -165,15 +167,25 @@ export default function TransferModal({ handler }) {
 
   function validateForm() {
     if (formData.amount !== "" && formData.timestamp !== "") {
-      return true;
+      if (parseFloat(formData.amount).toFixed(2) > 0) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
   }
+
+  function clearForm() {
+    setFormData(initialFormData);
+  }
   // const notify = () => toast("Wow so easy!");
 
+  const dispatch = useDispatch();
+
   function submitForm() {
-    console.log(formData);
+    // console.log(formData);
     if (validateForm()) {
       // toast("Transfer successfully sent!");
       toast.success("Transfer successfully sent!", {
@@ -182,17 +194,46 @@ export default function TransferModal({ handler }) {
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        // draggable: true,
         progress: undefined,
         theme: "colored",
         transition: Bounce,
       });
-      // console.log("Successful POPUP");
+
+      insertNewTransaction();
       handler();
+      clearForm();
     } else {
-      toast("Error!");
+      toast.error("ERROR: Incorrect data entered", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        // draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+      });
       // console.log("Error");
     }
+  }
+
+  function insertNewTransaction() {
+    const preparedTransation = {
+      id: formData.id,
+      amount: parseFloat(formData.amount).toFixed(2),
+      currency: formData.currency,
+      timestamp: formData.timestamp,
+      merchant: "Bank Transfer",
+      merchant_id: "default",
+      category: "Transfer",
+      type: "expense",
+      status: "pending",
+    };
+
+    dispatch(addTransaction(preparedTransation));
+    dispatch(updateBalance({ account: formData.transfer_from, currency: formData.currency, amount: preparedTransation.amount }));
   }
 
   // useEffect(() => {

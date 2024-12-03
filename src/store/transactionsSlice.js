@@ -5,8 +5,8 @@ import { getTransactions, setTransactions } from "./localStorage";
 let initialTransactions = getTransactions();
 
 if (!initialTransactions) {
-  initialTransactions = transationsJsonFile;
-  setTransactions(initialTransactions);
+  initialTransactions = transationsJsonFile; // Get from JSON file
+  setTransactions(initialTransactions); // Save to localStorage
 }
 
 const transactionsSlice = createSlice({
@@ -14,7 +14,11 @@ const transactionsSlice = createSlice({
   initialState: initialTransactions,
   reducers: {
     // Reducers
+    addTransaction: (state, action) => {
+      state.transactions.push(action.payload);
+    },
   },
 });
 
+export const { addTransaction } = transactionsSlice.actions;
 export default transactionsSlice.reducer;
