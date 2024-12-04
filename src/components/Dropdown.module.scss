@@ -1,8 +1,9 @@
 @use "./../common" as *;
 
 .dropdown_container {
+}
+.dropdown {
   position: relative;
-  // width: 100%;
 }
 
 .list {
@@ -70,4 +71,11 @@
 }
 .label {
   line-height: 40px;
+}
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
 }

@@ -11,62 +11,62 @@
     "currency": "EUR",
     "name": "Euro",
     "symbol": "€",
-    "exchange_rate": "0.94628"
+    "exchange_rate": "1.05"
   },
   {
     "id": "3",
     "currency": "GBP",
     "name": "British Pound",
     "symbol": "£",
-    "exchange_rate": "0.78857"
+    "exchange_rate": "1.27"
   },
   {
     "id": "4",
     "currency": "JPY",
     "name": "Japanese Yen",
     "symbol": "¥",
-    "exchange_rate": "148.23"
+    "exchange_rate": "0.0067"
   },
   {
     "id": "5",
     "currency": "AUD",
     "name": "Australian Dollar",
     "symbol": "A$",
-    "exchange_rate": "1.54"
+    "exchange_rate": "0.65"
   },
   {
     "id": "6",
     "currency": "CAD",
     "name": "Canadian Dollar",
     "symbol": "C$",
-    "exchange_rate": "1.37"
+    "exchange_rate": "0.71"
   },
   {
     "id": "7",
     "currency": "CHF",
     "name": "Swiss Franc",
     "symbol": "CHF",
-    "exchange_rate": "0.89"
+    "exchange_rate": "1.13"
   },
   {
     "id": "8",
     "currency": "CNY",
     "name": "Chinese Yuan",
     "symbol": "¥",
-    "exchange_rate": "7.25"
+    "exchange_rate": "0.14"
   },
   {
     "id": "9",
     "currency": "HKD",
     "name": "Hong Kong Dollar",
     "symbol": "HK$",
-    "exchange_rate": "7.84"
+    "exchange_rate": "0.13"
   },
   {
     "id": "10",
     "currency": "NZD",
     "name": "New Zealand Dollar",
     "symbol": "NZ$",
-    "exchange_rate": "1.70"
+    "exchange_rate": "0.59"
   }
 ]

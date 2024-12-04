@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "Transaction Alert",
+    "message": "Your account was debited with $150.00 at Grocery Store. Balance: $850.00.",
+    "type": "transaction",
+    "timestamp": "2024-12-04T08:15:30Z",
+    "read": false
+  },
+  {
+    "id": "2",
+    "title": "Payment Due Reminder",
+    "message": "Your credit card payment of $200.00 is due on 2024-12-10. Avoid late fees by paying on time.",
+    "type": "reminder",
+    "timestamp": "2024-12-03T14:30:00Z",
+    "read": false
+  },
+  {
+    "id": "3",
+    "title": "New Offer Available",
+    "message": "Earn 5% cashback on all purchases made this holiday season using your debit card.",
+    "type": "offer",
+    "timestamp": "2024-12-01T09:00:00Z",
+    "read": true
+  },
+  {
+    "id": "4",
+    "title": "Security Alert",
+    "message": "A new login to your account was detected from an unknown device. If this wasn't you, please reset your password.",
+    "type": "security",
+    "timestamp": "2024-12-03T18:45:15Z",
+    "read": true
+  },
+  {
+    "id": "5",
+    "title": "Monthly Statement",
+    "message": "Your November 2024 account statement is now available. View it in your account for a summary of your transactions.",
+    "type": "statement",
+    "timestamp": "2024-12-02T10:00:00Z",
+    "read": true
+  }
+]

@@ -25,9 +25,22 @@ function setTransactions(data) {
   const transactions = JSON.stringify(data);
   localStorage.setItem("transactions", transactions);
 }
+function getNotifications() {
+  const notifications = localStorage.getItem("notifications");
+  if (notifications) {
+    return JSON.parse(notifications);
+  } else {
+    return null;
+  }
+}
+
+function setNotifications(data) {
+  const notifications = JSON.stringify(data);
+  localStorage.setItem("notifications", notifications);
+}
 
 function clearStorage() {
   localStorage.clear();
 }
 
-export { getUser, setUser, getTransactions, setTransactions, clearStorage };
+export { getUser, setUser, getTransactions, setTransactions, getNotifications, setNotifications, clearStorage };
