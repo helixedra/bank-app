@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Dashboard from "./Dashboard";
 import Transactions from "./Transactions";
-import Settings from "./Settings";
+import Support from "./Support";
 import Services from "./Services";
 import userdata from "./database/userdata.json"; // delete
 import { ToastContainer } from "react-toastify";
@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transactions/:page" element={<Transactions />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </Provider>
       </div>

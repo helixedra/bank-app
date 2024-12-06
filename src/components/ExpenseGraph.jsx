@@ -64,7 +64,7 @@ export default function ExpenseGraph() {
       <div className="flex justify-between items-center">
         <h2>Statistics</h2>
         {/* <Segment buttons={expenseSegment} handler={handleExpenseSegment} size="l" type="primary" /> */}
-        <Dropdown options={rangeDropdownState} toggle={toggleRangeDropdown} />
+        <Dropdown options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
       </div>
 
       <div className="mt-6" style={{ height: "220px" }}>

@@ -11,9 +11,7 @@ import { useSelector } from "react-redux";
 
 export default function Accounts() {
   const userdata = useSelector((state) => state.userdata);
-
   const cardSliderRef = useRef();
-
   const creditCards = userdata.cards.map((card) => {
     return <CreditCard key={card.id} card={card} />;
   });
@@ -46,7 +44,6 @@ export default function Accounts() {
     const newState = accountSegment.map((segment) => {
       return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
     });
-
     setAccountSegment(newState);
     setUserAccount(id);
   }
@@ -56,8 +53,6 @@ export default function Accounts() {
     const slider = cardSliderRef.current;
     const slides = slider.childElementCount;
     const sliderWidth = slides * 308 + slides * padding - 24;
-    // const sliderWidth = slider.offsetWidth - 40;
-    // const step = parseFloat((sliderWidth / slides).toFixed(1));
     const step = 300 + padding;
     const maxTranslateX = Math.min(0, step - sliderWidth);
 

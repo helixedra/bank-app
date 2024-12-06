@@ -15,7 +15,7 @@ export default function Navigation({ data }) {
           <NavLink to="/services">Services</NavLink>
         </li>
         <li>
-          <NavLink to="/settings">Settings</NavLink>
+          <NavLink to="/support">Support</NavLink>
         </li>
       </ul>
       <ul className="user_controls">

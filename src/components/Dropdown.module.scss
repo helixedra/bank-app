@@ -15,10 +15,23 @@
   border: 1px solid #d5d5de;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  right: 0;
-  left: 0;
+  margin-top: 4px;
   z-index: 10;
   overflow-y: auto;
+  min-width: 150px;
+}
+
+.align {
+  &_left {
+    right: 0;
+  }
+  &_right {
+    left: 0;
+  }
+  &_center {
+    left: 0;
+    right: 0;
+  }
 }
 
 .list_item {
@@ -32,6 +45,15 @@
   height: 40px;
   width: 100%;
   text-align: left;
+  font-size: 16px;
+
+  &_border {
+    height: 1px;
+    width: 100%;
+    background-color: $gray-2;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 
   &:hover {
     background-color: $gray-2;

@@ -1,3 +1,3 @@
 export default function Settings() {
-  return <main>Settings</main>;
+  return <main>Support</main>;
 }

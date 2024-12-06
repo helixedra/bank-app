@@ -248,14 +248,14 @@ export default function TransferModal({ handler }) {
           <div className={classes.input}>
             <span className={classes.symbol}>{symbol}</span>
             <input className={classes.amount_input} type="number" placeholder="0.00" value={formData.amount} onChange={(e) => handleForm(e.target.value, "amount")} />
-            <Dropdown options={currencyDropdownState} toggle={toggleCurrencyDropdown} />
+            <Dropdown options={currencyDropdownState} toggle={toggleCurrencyDropdown} align="left" />
           </div>
         </div>
 
         <div className={classes.from_container}>
           <div className={classes.label}>Transfer From</div>
           <div className={classes.input}>
-            <Dropdown options={accountsDropdownState} toggle={toggleAccountsDropdown} />
+            <Dropdown options={accountsDropdownState} toggle={toggleAccountsDropdown} width="100%" />
           </div>
         </div>
       </div>

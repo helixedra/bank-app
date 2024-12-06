@@ -52,8 +52,8 @@ export default function BarChart({ period = "daily" }) {
       {
         label: "Expense",
         data: expenseData,
-        backgroundColor: "#ff4d00", // Bar color
-        borderColor: "#ff4d00", // Border color for bars
+        backgroundColor: "#272727", // Bar color
+        borderColor: "#272727", // Border color for bars
         borderWidth: 0,
         borderRadius: 0, // Rounded corners for bars
         barThickness: 8,
