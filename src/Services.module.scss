@@ -1,0 +1,96 @@
+@use "./common" as *;
+
+.services {
+  background-color: white;
+  border-radius: $border-radius;
+  height: fit-content;
+  padding: 24px;
+  background-image: url("/images/image8.jpg");
+  background-size: 696px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  padding-bottom: 16px;
+
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $gray-2;
+    padding-bottom: 24px;
+  }
+}
+.services_item {
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $gray-2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(39 39 39 / 3%);
+    margin-left: -8px;
+    margin-right: -8px;
+    padding: 32px 24px;
+    border-radius: 8px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &_icon {
+    margin-right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    background-color: $gray-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_info {
+    &_title {
+      font-size: 20px;
+      color: $black;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    &_description {
+      font-size: 16px;
+      color: $text-grey;
+    }
+  }
+}
+.promo {
+  padding: 24px;
+  //   background: linear-gradient(180deg, #0a1728 0%, #0b2757 100%);
+  border-radius: $border-radius;
+  color: white;
+  height: 320px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  background: url("/images/image6.jpg") no-repeat 100% 0%, linear-gradient(180deg, #0a1728 0%, #0b2757 100%);
+  //   background-size: 50%;
+  //   background-repeat: no-repeat;
+  //   background-position: 100% 100%;
+  background-size: 300px;
+
+  &_header {
+    h1 {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    .promo_text {
+      opacity: 0.6;
+      font-weight: 400;
+    }
+  }
+  &_footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

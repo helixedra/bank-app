@@ -53,9 +53,9 @@ export default function Transactions() {
       <div className={classes.transactions}>
         <div className={classes.transactions_header}>
           <div>
-            <Button type="secondary" icon={<RiPieChartLine />}>
+            {/* <Button type="secondary" icon={<RiPieChartLine />}>
               Chart
-            </Button>
+            </Button> */}
             <SearchInput icon={<RiSearchLine />} placeholder="Search" value={searchQuery} handler={handleSearch} name="search" />
           </div>
           <div>
