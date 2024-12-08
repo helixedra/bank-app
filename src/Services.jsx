@@ -85,10 +85,10 @@ export default function Services() {
             <div className={classes.promo}>
               <div className={classes.promo_header}>
                 <h1>Get a Loan</h1>
-                <di className={classes.promo_text}>
+                <div className={classes.promo_text}>
                   Need Extra Cash? Get a Loan
                   <br /> with Special Rates!
-                </di>
+                </div>
               </div>
               <div className={classes.promo_footer}>
                 <div>
