@@ -1,6 +1,27 @@
 // Variables
 $spacing-step: 4px;
-$spacing-steps: 10; // Кількість кроків, від 0 до 10 * $spacing-step
+$spacing-steps: 10;
+
+@mixin row-fill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin column-fill {
+  display: flex;
+  // align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+@mixin row {
+  display: flex;
+  align-items: center;
+}
+@mixin row-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 // Generate padding classes
 @for $i from 0 through $spacing-steps {

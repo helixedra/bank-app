@@ -1,10 +1,38 @@
-$black: #272727;
-$light-gray: #f0f1f4;
-$gray-3: #d5d5de;
+// $dark-90: #272727;
+// $dark-20: #f0f1f4;
+// $dark-20: #d5d5de;
 // $gray-1: #f0f1f4;
-$gray-2: #f0f1f4;
+// $dark-10: #f0f1f4;
 $border-radius: 16px;
-$text-grey: #808187;
-// $text-grey-2: #7E7E7E;
+// $dark-50: #808187;
+// $dark-50-2: #7E7E7E;
 $text-green: #00a452;
 $bg-green: #00ff80;
+
+//
+
+// Dark colors
+$dark-90: hsl(0, 0%, 10%);
+$dark-80: hsl(0, 0%, 20%);
+$dark-70: hsl(0, 0%, 30%);
+$dark-60: hsl(0, 0%, 40%);
+$dark-50: hsl(0, 0%, 50%);
+$dark-40: hsl(0, 0%, 60%);
+$dark-30: hsl(0, 0%, 70%);
+$dark-20: hsl(0, 0%, 80%);
+$dark-10: hsl(0, 0%, 90%);
+$dark-5: hsl(0, 0%, 95%);
+
+$white: hsl(0, 0%, 100%);
+
+// Font sizes in rem
+$font-size-12: 0.75rem; // 12px
+$font-size-14: 0.875rem; // 14px
+$font-size-16: 1rem; // 16px (base)
+$font-size-18: 1.125rem; // 18px
+$font-size-20: 1.25rem; // 20px
+$font-size-24: 1.5rem; // 24px
+$font-size-32: 2rem; // 32px
+$font-size-40: 2.5rem; // 40px
+$font-size-48: 3rem; // 48px
+$font-size-56: 3.5rem; // 56px

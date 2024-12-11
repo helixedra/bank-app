@@ -1,0 +1,136 @@
+@use "./variables" as *;
+@use "sass:color";
+
+$gap-desktop: 24px;
+$gap-mobile: 16px;
+
+.wrapper {
+  padding: $gap-mobile;
+  margin: 0 auto;
+}
+
+body {
+  [data-theme="light"] & {
+    background-color: $dark-5;
+    color: $dark-90;
+  }
+
+  [data-theme="dark"] & {
+    background-color: $dark-90;
+    color: $dark-5;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-mobile;
+  margin-bottom: $gap-mobile;
+  justify-content: space-between;
+}
+
+.card_container {
+  background-color: $white;
+  border-radius: $border-radius;
+  height: auto;
+  width: 100%;
+  padding: $gap-mobile;
+
+  [data-theme="light"] & {
+    background-color: $white;
+    color: $dark-90;
+  }
+
+  [data-theme="dark"] & {
+    background-color: $dark-80;
+  }
+}
+
+// @media (prefers-color-scheme: light) {
+//   body {
+//     background-color: $dark-5;
+//     color: $dark-90;
+//   }
+//   // .card_container {
+//   //   background-color: $white;
+//   // }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   body {
+//     background-color: $dark-90;
+//     color: $dark-5;
+//   }
+//   // .card_container {
+//   //   background-color: $dark-80;
+//   // }
+// }
+
+/* Small (SM) */
+@media (min-width: 576px) {
+  // .container {
+  //   max-width: 540px;
+  // }
+  .wrapper {
+  }
+  .row {
+    gap: $gap-mobile;
+  }
+}
+
+/* Medium (MD) */
+@media (min-width: 768px) {
+  // .container {
+  //   max-width: 720px;
+  // }
+}
+
+/* Large (LG) */
+@media (min-width: 992px) {
+  // .container {
+  //   max-width: 960px;
+  // }
+  .wrapper {
+    // padding: $gap-mobile;
+  }
+  .row {
+    // gap: $gap-desktop;
+    // flex-direction: row;
+  }
+}
+
+/* Extra Large (XL) */
+@media (min-width: 1200px) {
+  // .container {
+  //   max-width: 1140px;
+  // }
+  .wrapper {
+    padding: $gap-desktop;
+  }
+  .row {
+    gap: $gap-desktop;
+    flex-direction: row;
+    margin-bottom: $gap-desktop;
+  }
+  .card_container {
+    padding: $gap-desktop;
+  }
+}
+
+// /* XXL */
+// @media (min-width: 1400px) {
+//   // .container {
+//   //   max-width: 1320px;
+//   // }
+//   .wrapper {
+//     padding: $gap-desktop;
+//   }
+//   .row {
+//     gap: $gap-desktop;
+//     flex-direction: row;
+//     margin-bottom: $gap-desktop;
+//   }
+//   .card_container {
+//     padding: $gap-desktop;
+//   }
+// }

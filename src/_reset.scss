@@ -10,8 +10,10 @@
 }
 
 ul[role="list"],
-ol[role="list"] {
+ol[role="list"],
+ul {
   list-style: none;
+  list-style-type: none;
 }
 
 html:focus-within {
@@ -43,6 +45,9 @@ select {
 }
 button {
   cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
 }
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {

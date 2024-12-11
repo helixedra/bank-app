@@ -45,18 +45,18 @@
   height: 40px;
   width: 100%;
   text-align: left;
-  font-size: 16px;
+  font-size: $font-size-16;
 
   &_border {
     height: 1px;
     width: 100%;
-    background-color: $gray-2;
+    background-color: $dark-10;
     margin-top: 8px;
     margin-bottom: 8px;
   }
 
   &:hover {
-    background-color: $gray-2;
+    background-color: $dark-10;
   }
 
   &_text {

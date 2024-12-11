@@ -1,0 +1,50 @@
+@use "../../common" as *;
+
+.accounts_header {
+  @include row-fill;
+}
+
+.checkbox_fill {
+  color: $text-green;
+}
+.checkbox_blank {
+  [data-theme="light"] & {
+    color: $dark-5;
+  }
+  [data-theme="dark"] & {
+    color: $dark-70;
+  }
+}
+
+.accounts {
+  @include column-fill;
+  gap: 2.5rem;
+}
+.accounts_amount__symbol {
+  font-size: $font-size-20;
+  color: $dark-40;
+  line-height: $font-size-40;
+  vertical-align: super;
+  position: absolute;
+  margin-left: -1.5rem;
+}
+
+.accounts_amount {
+  text-align: center;
+  font-size: $font-size-40;
+  letter-spacing: 0.15rem;
+
+  &__label {
+    font-size: $font-size-14;
+    color: $dark-40;
+    letter-spacing: normal;
+    margin-bottom: 0.25rem;
+  }
+}
+.accounts_buttons {
+  @include row-fill;
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 1rem;
+}

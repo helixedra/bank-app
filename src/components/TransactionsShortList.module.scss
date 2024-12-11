@@ -7,10 +7,10 @@
     justify-content: space-between;
     padding-bottom: 16px;
     margin-bottom: 16px;
-    border-bottom: 1px solid $gray-2;
+    border-bottom: 1px solid $dark-10;
 
     &_title {
-      font-size: 24px;
+      font-size: $font-size-24;
     }
 
     // &_actions {
@@ -26,7 +26,7 @@
     min-width: 48px;
     min-height: 48px;
     border-radius: 48px;
-    background-color: $gray-3;
+    background-color: $dark-10;
     background-repeat: no-repeat;
     background-size: cover;
     margin-right: 24px;
@@ -39,23 +39,23 @@
     width: 100%;
 
     .merchant_name {
-      font-size: 18px;
+      font-size: $font-size-18;
       margin-bottom: 8px;
     }
 
     .transaction_date {
-      font-size: 14px;
-      color: $text-grey;
+      font-size: $font-size-14;
+      color: $dark-50;
     }
     .transaction_amount_currency {
-      font-size: 18px;
+      font-size: $font-size-18;
       margin-bottom: 8px;
       text-align: right;
       font-weight: 500;
     }
     .transaction_amount_main_currency {
-      font-size: 14px;
-      color: $text-grey;
+      font-size: $font-size-14;
+      color: $dark-50;
       text-align: right;
     }
   }

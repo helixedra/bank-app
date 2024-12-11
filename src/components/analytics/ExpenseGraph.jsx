@@ -1,38 +1,21 @@
 import { useState } from "react";
 // import LineChart from "./LineChart";
 // import Segment from "./Segment";
-import Dropdown from "./Dropdown";
+import Dropdown from "../shared/Dropdown";
 import BarChart from "./BarCharts";
+import { useSelector } from "react-redux";
 
 export default function ExpenseGraph() {
-  // const expenseSegmentData = [
-  //   {
-  //     id: "balance",
-  //     name: "Balance",
-  //     icon: null,
-  //     active: true,
-  //   },
-  //   {
-  //     id: "expense",
-  //     name: "Expense",
-  //     icon: null,
-  //     active: false,
-  //   },
-  //   {
-  //     id: "income",
-  //     name: "Income",
-  //     icon: null,
-  //     active: false,
-  //   },
-  // ];
   const rangeDropdownInitial = [
     { id: "yearly", name: "Yearly", action: () => handleRangeDropdown("yearly"), before: null, after: null, active: false },
     { id: "monthly", name: "Monthly", action: () => handleRangeDropdown("monthly"), before: null, after: null, active: false },
     { id: "daily", name: "Daily", action: () => handleRangeDropdown("daily"), before: null, after: null, active: true },
   ];
-  // const [expenseSegment, setExpenseSegment] = useState(expenseSegmentData);
+
   const [rangeDropdownState, setRangeDropdownState] = useState({ data: rangeDropdownInitial, visibility: false });
   const [period, setPeriod] = useState("daily");
+
+  const theme = useSelector((state) => state.settings.theme);
 
   function handleRangeDropdown(id) {
     // Update state
@@ -50,26 +33,28 @@ export default function ExpenseGraph() {
       return { data: prev.data, visibility: !prev.visibility };
     });
   }
-  // const [expense, setExpense] = useState("all");
 
-  // function handleExpenseSegment(event, id) {
-  //   const newState = expenseSegment.map((segment) => {
-  //     return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
-  //   });
-  //   setExpenseSegment(newState);
-  //   // setExpense(id);
-  // }
+  const chartsStyle = {
+    light: {
+      expenseBarColor: "#1A1A1A",
+      incomeBarColor: "#CCCCCC",
+    },
+    dark: {
+      expenseBarColor: "#999999",
+      incomeBarColor: "#4D4D4D",
+    },
+  };
+
   return (
     <div className="card_container">
       <div className="flex justify-between items-center">
-        <h2>Statistics</h2>
-        {/* <Segment buttons={expenseSegment} handler={handleExpenseSegment} size="l" type="primary" /> */}
-        <Dropdown options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
+        <h2>Analytics</h2>
+
+        <Dropdown style="secondary" options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
       </div>
 
       <div style={{ height: "220px" }}>
-        {/* <LineChart /> */}
-        <BarChart period={period} />
+        <BarChart period={period} style={chartsStyle} theme={theme} />
       </div>
     </div>
   );

@@ -43,4 +43,12 @@ function clearStorage() {
   localStorage.clear();
 }
 
-export { getUser, setUser, getTransactions, setTransactions, getNotifications, setNotifications, clearStorage };
+function getTheme() {
+  return localStorage.getItem("theme");
+}
+
+function setTheme(theme) {
+  localStorage.setItem("theme", theme);
+}
+
+export { getUser, setUser, getTransactions, setTransactions, getNotifications, setNotifications, clearStorage, getTheme, setTheme };

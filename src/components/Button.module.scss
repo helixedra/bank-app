@@ -25,7 +25,7 @@
 }
 
 .button {
-  font-size: 16px;
+  font-size: $font-size-16;
   border-radius: 56px;
   display: flex;
   align-items: center;
@@ -56,27 +56,27 @@
 
 //type
 .primary {
-  background-color: $black;
+  background-color: $dark-90;
   color: white;
   &:hover {
-    background-color: color.scale($black, $lightness: 10%);
+    background-color: color.scale($dark-90, $lightness: 10%);
   }
 }
 .secondary {
-  background-color: $light-gray;
-  color: $black;
+  background-color: $dark-10;
+  color: $dark-90;
   &:hover {
-    background-color: color.scale($light-gray, $blackness: 10%);
-    color: color.scale($black, $lightness: 10%);
+    background-color: color.scale($dark-10, $blackness: 10%);
+    color: color.scale($dark-90, $lightness: 10%);
   }
 }
 .additional {
   background-color: white;
-  border: 1px solid $gray-3;
-  color: $black;
+  border: 1px solid $dark-10;
+  color: $dark-90;
   &:hover {
-    border-color: color.scale($gray-3, $lightness: 50%);
-    color: color.scale($black, $lightness: 50%);
+    border-color: color.scale($dark-10, $lightness: 50%);
+    color: color.scale($dark-90, $lightness: 50%);
   }
 }
 

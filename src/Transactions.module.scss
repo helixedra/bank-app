@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 24px;
-    border-bottom: 1px solid $gray-2;
+    border-bottom: 1px solid $dark-10;
 
     & > div {
       display: inherit;
@@ -31,10 +31,10 @@
   //   justify-content: space-between;
   align-items: center;
   padding: 16px 16px;
-  border-bottom: 1px solid $gray-2;
+  border-bottom: 1px solid $dark-10;
   cursor: pointer;
   &:hover {
-    background-color: $gray-2;
+    background-color: $dark-10;
     border-radius: 8px;
     // border: 1px solid #ffffff00;
     margin-left: -8px;
@@ -44,12 +44,12 @@
   }
 }
 .main_info {
-  font-size: 18px;
+  font-size: $font-size-18;
   margin-bottom: 4px;
 }
 .additional_info {
-  font-size: 14px;
-  color: $text-grey;
+  font-size: $font-size-14;
+  color: $dark-50;
 }
 .info {
   width: 385px;
@@ -89,5 +89,5 @@
   margin: 0 auto;
   padding: 48px;
   text-align: center;
-  color: $text-grey;
+  color: $dark-50;
 }

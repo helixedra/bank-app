@@ -18,20 +18,20 @@
   }
 
   &_label {
-    font-size: 16px;
-    color: $text-grey;
+    font-size: $font-size-16;
+    color: $dark-50;
   }
   &_amount {
-    font-size: 56px;
+    font-size: $font-size-56;
     font-weight: 500;
     display: flex;
     align-items: flex-start;
     letter-spacing: 4px;
 
     &_symbol {
-      font-size: 48px;
+      font-size: $font-size-48;
       font-weight: 400;
-      color: $text-grey;
+      color: $dark-50;
       margin-right: 16px;
     }
   }
@@ -90,8 +90,8 @@
     line-height: 16px;
     border-radius: 48px;
     background-color: white;
-    color: $black;
-    border: 1px solid $light-gray;
+    color: $dark-90;
+    border: 1px solid $dark-10;
 
     &:first-child {
       position: absolute;

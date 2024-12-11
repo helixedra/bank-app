@@ -1,0 +1,119 @@
+@use "../../common" as *;
+@use "sass:color";
+
+.button {
+  height: 3rem;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  text-wrap: nowrap;
+  justify-content: center;
+
+  &_primary {
+    [data-theme="light"] & {
+      background-color: $dark-90;
+      color: $white;
+    }
+
+    [data-theme="dark"] & {
+      background-color: $dark-5;
+      color: $dark-90;
+    }
+
+    &:hover {
+      [data-theme="light"] & {
+        background-color: color.scale($dark-90, $lightness: 10%);
+      }
+      [data-theme="dark"] & {
+        background-color: color.scale($dark-5, $blackness: 10%);
+      }
+    }
+  }
+
+  &_secondary {
+    [data-theme="light"] & {
+      background-color: $dark-10;
+      color: $dark-90;
+    }
+
+    [data-theme="dark"] & {
+      background-color: $dark-70;
+      color: $dark-5;
+    }
+
+    &:hover {
+      [data-theme="light"] & {
+        background-color: color.scale($dark-10, $blackness: 10%);
+        color: color.scale($dark-90, $lightness: 10%);
+      }
+
+      [data-theme="dark"] & {
+        background-color: color.scale($dark-70, $lightness: 10%);
+        color: color.scale($dark-5, $lightness: 10%);
+      }
+    }
+  }
+}
+
+// @media (prefers-color-scheme: light) {
+//   .button {
+//     &_primary {
+//       background-color: $dark-90;
+//       color: $white;
+//       &:hover {
+//         background-color: color.scale($dark-90, $lightness: 10%);
+//       }
+//     }
+//     &_secondary {
+//       background-color: $dark-10;
+//       color: $dark-90;
+//       &:hover {
+//         background-color: color.scale($dark-10, $blackness: 10%);
+//         color: color.scale($dark-90, $lightness: 10%);
+//       }
+//     }
+//   }
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   .button {
+//     &_primary {
+//       background-color: $dark-5;
+//       color: $dark-90;
+//       &:hover {
+//         background-color: color.scale($dark-5, $lightness: 10%);
+//       }
+//     }
+//     &_secondary {
+//       background-color: $dark-70;
+//       color: $dark-5;
+//       &:hover {
+//         background-color: color.scale($dark-70, $lightness: 10%);
+//         color: color.scale($dark-5, $lightness: 10%);
+//       }
+//     }
+//   }
+// }
+
+.icon_button {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &_icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_text {
+    margin-top: 0.5rem;
+  }
+}
