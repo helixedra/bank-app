@@ -57,6 +57,8 @@ export default function AccountsListModal({ accounts, active, handler }) {
     </div>
   );
 
+  function handleNewAccountModal() {}
+
   return (
     <div>
       <div className="accounts_list__container">
@@ -64,7 +66,7 @@ export default function AccountsListModal({ accounts, active, handler }) {
           {accountsList}
           {allAccountsItem}
         </div>
-        <Button style={"secondary"} width={"100%"}>
+        <Button style={"secondary"} width={"100%"} action={handleNewAccountModal}>
           New Account
         </Button>
       </div>

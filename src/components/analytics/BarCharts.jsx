@@ -82,7 +82,7 @@ export default function BarChart({ period = "daily", style, theme }) {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
+        display: false,
         position: "top",
         align: "start",
         labels: {

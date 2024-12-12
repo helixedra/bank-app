@@ -45,6 +45,11 @@ body {
   [data-theme="dark"] & {
     background-color: $dark-80;
   }
+
+  & .block_title {
+    font-size: $card-title;
+    padding-left: 0.5rem;
+  }
 }
 
 /* Small (SM) */
@@ -58,6 +63,9 @@ body {
   .all_cards {
     max-width: 100%;
   }
+  // .mobile_menu__list {
+  //   width: 100% !important;
+  // }
 }
 
 /* Medium (MD) */
@@ -68,15 +76,14 @@ body {
   .all_cards {
     max-width: 400px;
   }
+  // .mobile_menu__list {
+  //   width: 100%;
+  // }
 }
 
 /* Large (LG) */
 @media (min-width: 992px) {
-  // .container {
-  //   max-width: 960px;
-  // }
   .wrapper {
-    // padding: $gap-mobile;
   }
   .row {
     flex-direction: row;
@@ -89,6 +96,15 @@ body {
   }
   .transactions_shortlist {
     max-width: 100%;
+  }
+  .responsive_container {
+    min-width: 50vw;
+  }
+  .desktop_menu {
+    display: block !important;
+  }
+  .mobile_menu {
+    display: none;
   }
 }
 
@@ -123,5 +139,11 @@ body {
   .promo_section {
     display: block !important;
     max-width: 400px;
+  }
+  .desktop_menu {
+    display: block !important;
+  }
+  .mobile_menu {
+    display: none;
   }
 }

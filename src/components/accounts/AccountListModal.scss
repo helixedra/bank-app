@@ -1,12 +1,7 @@
 @use "../../common" as *;
 
 .accounts_list {
-  [data-theme="light"] & {
-    border-color: $dark-10;
-  }
-  [data-theme="dark"] & {
-    border-color: rgba($dark-70, 0.3);
-  }
+  @include border;
 
   &__action_button {
   }
@@ -17,12 +12,7 @@
   cursor: pointer;
 
   &:hover {
-    background: rgba($dark-90, 0.2);
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    border-radius: 1rem;
+    @include list-item-hover;
   }
 
   &__container {
@@ -45,6 +35,6 @@
   }
 }
 .accounts_list {
-  border-top: 1px solid;
-  padding: 1rem 0;
+  // border-top: 1px solid;
+  padding-bottom: 1.5rem;
 }

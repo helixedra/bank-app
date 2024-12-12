@@ -41,20 +41,21 @@ export default function Accounts({ userdata }) {
     toggleAccountsModal();
   }
 
+  function handleAccountButtons(action) {}
+
   return (
     <>
-      <div className="block_container">
-        <div className="accounts">
-          <AccountsHeader account={selectedAccount} action={toggleAccountsModal} />
-          <AccountsAmount userdata={userdata} selectedAccount={selectedAccount.id} selectedAccountName={selectedAccount.name} />
-          <AccountsButtons>
-            <IconButton icon={<RiArrowUpLine />} style="primary" text={"Request"} action={""} />
-            <IconButton icon={<RiArrowDownLine />} style="primary" text={"Transfer"} action={""} />
-            <IconButton icon={<RiArrowLeftRightLine />} style="primary" text={"Exchange"} action={""} />
-            <IconButton icon={<RiMoreFill />} style="primary" text={"More"} action={""} />
-          </AccountsButtons>
-        </div>
+      <div className="accounts">
+        <AccountsHeader account={selectedAccount} action={toggleAccountsModal} />
+        <AccountsAmount userdata={userdata} selectedAccount={selectedAccount.id} selectedAccountName={selectedAccount.name} />
+        <AccountsButtons>
+          <IconButton icon={<RiArrowUpLine />} style="primary" text={"Request"} action={() => handleAccountButtons("request")} />
+          <IconButton icon={<RiArrowDownLine />} style="primary" text={"Transfer"} action={() => handleAccountButtons("transfer")} />
+          <IconButton icon={<RiArrowLeftRightLine />} style="primary" text={"Exchange"} action={() => handleAccountButtons("exchange")} />
+          <IconButton icon={<RiMoreFill />} style="primary" text={"More"} action={() => handleAccountButtons("more")} />
+        </AccountsButtons>
       </div>
+
       <Modal visibility={accountsModal} handler={toggleAccountsModal} title="Accounts">
         <AccountsListModal accounts={userdata.accounts} active={selectedAccount} handler={handleAccountsModal} />
       </Modal>

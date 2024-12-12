@@ -1,13 +1,13 @@
 //Dashboard.jsx
 // import SubHeader from "./components/SubHeader";
 // import userdata from "./database/userdata.json";
-// import Accounts from "./components/Accounts";
-import Accounts from "./components/accounts/Accounts";
+
 import TransactionsShortList from "./components/transactions/TransactionsShortList";
 
 // import PromoSectionsSlider from "./components/PromoSectionsSlider";
 // import transactions from "./database/transactions.json";
 import { useSelector } from "react-redux";
+import Accounts from "./components/accounts/Accounts";
 import Cards from "./components/cards/Cards";
 import Analytics from "./components/analytics/Analytics";
 import PromoSections from "./components/promo/PromoSection";
@@ -19,8 +19,12 @@ export default function Dashboard() {
     <main>
       {/* <SubHeader data={userdata} /> */}
       <div className="row">
-        <Accounts userdata={userdata} />
-        <Analytics />
+        <div className="block_container">
+          <Accounts userdata={userdata} />
+        </div>
+        <div className="block_container analytics">
+          <Analytics />
+        </div>
         <Cards cards={userdata.cards} />
       </div>
       <div className="row">

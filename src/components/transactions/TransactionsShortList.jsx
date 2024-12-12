@@ -60,9 +60,9 @@ function TransactionsShortList({ data, options }) {
   return (
     <div className="block_container transactions_shortlist">
       <div className="transactions_shortlist__header">
-        <div className="transactions_shortlist__header__title">Recent transactions</div>
+        <div className="block_title">Recent transactions</div>
         <div className="transactions_shortlist__header__actions">
-          <ButtonLink style="secondary" to={"/transactions"}>
+          <ButtonLink style="secondary" link={"/transactions"}>
             View More
           </ButtonLink>
         </div>

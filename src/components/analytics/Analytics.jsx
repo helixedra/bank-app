@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Dropdown from "../shared/Dropdown";
+import Dropdown from "./../shared/Dropdown";
 import BarChart from "./BarCharts";
 import { useSelector } from "react-redux";
 import "./Analytics.scss";
 
-export default function Analytics() {
+export default function Analytics({ heading = true }) {
   const rangeDropdownInitial = [
     { id: "yearly", name: "Yearly", action: () => handleRangeDropdown("yearly"), before: null, after: null, active: false },
     { id: "monthly", name: "Monthly", action: () => handleRangeDropdown("monthly"), before: null, after: null, active: false },
@@ -45,16 +45,13 @@ export default function Analytics() {
   };
 
   return (
-    <div className="block_container analytics">
-      <div className="analytics__container">
-        <div className="analytics__header">
-          <h2>Analytics</h2>
-          <Dropdown style="secondary" options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
-        </div>
-
-        <div className="analytics__chart">
-          <BarChart period={period} style={chartsStyle} theme={theme} />
-        </div>
+    <div className="analytics__container">
+      <div className="analytics__header">
+        <div className={heading ? "block_title" : "block_title invisible"}>Analytics</div>
+        <Dropdown style="secondary" options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
+      </div>
+      <div className="analytics__chart">
+        <BarChart period={period} style={chartsStyle} theme={theme} />
       </div>
     </div>
   );

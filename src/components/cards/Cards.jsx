@@ -9,7 +9,7 @@ export default function Cards({ cards }) {
     <div className="block_container all_cards">
       <div className="all_cards__container">
         <div className="all_cards__header">
-          <h2>My Cards</h2>
+          <div className="block_title">My Cards</div>
           <IconButton style={"secondary"} icon={<RiAddLine />} />
         </div>
         <div className="all_cards__cards_stack">{allCards}</div>

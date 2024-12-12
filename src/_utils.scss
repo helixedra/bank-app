@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 // Variables
 $spacing-step: 4px;
 $spacing-steps: 10;
@@ -21,6 +23,31 @@ $spacing-steps: 10;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin list-item-hover {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  [data-theme="light"] & {
+    background: $list-hover-bg-light;
+  }
+  [data-theme="dark"] & {
+    background: $list-hover-bg-dark;
+  }
+}
+
+@mixin border {
+  [data-theme="light"] & {
+    border-color: $dark-10;
+  }
+  [data-theme="dark"] & {
+    border-color: rgba($dark-70, 0.3);
+  }
 }
 
 // Generate padding classes

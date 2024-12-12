@@ -19,36 +19,6 @@ main {
   animation: blockAnimation 0.5s ease-in-out;
 }
 
-nav {
-  height: 56px;
-  text-wrap: nowrap;
-  line-height: 56px;
-  font-size: $font-size-24;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    list-style-type: none;
-  }
-  li {
-    height: 56px;
-    line-height: 56px;
-    display: flex;
-    align-items: center;
-    a {
-      text-decoration: none;
-      color: inherit;
-      height: 56px;
-      display: block;
-    }
-    .active {
-      border-bottom: 2px solid $dark-90;
-    }
-  }
-}
 .user_avatar {
   width: 48px;
   height: 48px;
@@ -127,4 +97,14 @@ h2 {
   & > *:not(:first-child) {
     margin-left: -0.25rem;
   }
+}
+dialog::backdrop {
+  background-color: rgba($dark-90, 0.6);
+}
+
+.invisible {
+  visibility: hidden;
+}
+.overflow-hidden {
+  overflow: hidden;
 }
