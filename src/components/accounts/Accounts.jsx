@@ -43,7 +43,7 @@ export default function Accounts({ userdata }) {
 
   return (
     <>
-      <div className="card_container">
+      <div className="block_container">
         <div className="accounts">
           <AccountsHeader account={selectedAccount} action={toggleAccountsModal} />
           <AccountsAmount userdata={userdata} selectedAccount={selectedAccount.id} selectedAccountName={selectedAccount.name} />

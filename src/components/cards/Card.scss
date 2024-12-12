@@ -4,7 +4,8 @@
 
 .card_container {
   perspective: 1000px;
-  // height: 300px;
+  display: flex;
+  justify-content: center;
 }
 .card {
   display: flex;
@@ -29,25 +30,25 @@
   // transform: none;
   transform: perspective(1px) scale(1);
 
-  &:not(.turn_card):hover {
-    animation: rotateCard 2s ease-in-out infinite;
-    transform: perspective(1px) scale(1);
-  }
+  // &:not(.turn_card):hover {
+  //   animation: rotateCard 2s ease-in-out infinite;
+  //   transform: perspective(1px) scale(1);
+  // }
 
-  @keyframes rotateCard {
-    0% {
-      transform: none;
-    }
-    60% {
-      transform: none;
-    }
-    80% {
-      transform: rotateY(15deg);
-    }
-    100% {
-      transform: none;
-    }
-  }
+  // @keyframes rotateCard {
+  //   0% {
+  //     transform: none;
+  //   }
+  //   60% {
+  //     transform: none;
+  //   }
+  //   80% {
+  //     transform: rotateY(15deg);
+  //   }
+  //   100% {
+  //     transform: none;
+  //   }
+  // }
 
   &_header {
     display: flex;

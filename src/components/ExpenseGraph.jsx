@@ -60,7 +60,7 @@ export default function ExpenseGraph() {
   //   // setExpense(id);
   // }
   return (
-    <div className="card_container">
+    <div className="block_container">
       <div className="flex justify-between items-center">
         <h2>Statistics</h2>
         {/* <Segment buttons={expenseSegment} handler={handleExpenseSegment} size="l" type="primary" /> */}

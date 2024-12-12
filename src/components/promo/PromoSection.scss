@@ -1,0 +1,39 @@
+@use "../../common" as *;
+
+.promo_section {
+  padding: 1.5rem;
+  border-radius: $border-radius;
+  display: none;
+  max-height: 320px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    @include column-fill;
+    height: 100%;
+    &__header {
+      &__title {
+        font-size: $font-size-40;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      &__description {
+        color: $dark-50;
+      }
+    }
+    &__footer {
+      @include row-fill;
+
+      &__info {
+        &__percent {
+          font-size: $font-size-24;
+        }
+        &__text {
+          font-size: $font-size-16;
+          color: $dark-50;
+        }
+      }
+    }
+  }
+}

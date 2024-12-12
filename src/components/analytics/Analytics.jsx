@@ -1,11 +1,10 @@
 import { useState } from "react";
-// import LineChart from "./LineChart";
-// import Segment from "./Segment";
 import Dropdown from "../shared/Dropdown";
 import BarChart from "./BarCharts";
 import { useSelector } from "react-redux";
+import "./Analytics.scss";
 
-export default function ExpenseGraph() {
+export default function Analytics() {
   const rangeDropdownInitial = [
     { id: "yearly", name: "Yearly", action: () => handleRangeDropdown("yearly"), before: null, after: null, active: false },
     { id: "monthly", name: "Monthly", action: () => handleRangeDropdown("monthly"), before: null, after: null, active: false },
@@ -46,15 +45,16 @@ export default function ExpenseGraph() {
   };
 
   return (
-    <div className="card_container">
-      <div className="flex justify-between items-center">
-        <h2>Analytics</h2>
+    <div className="block_container analytics">
+      <div className="analytics__container">
+        <div className="analytics__header">
+          <h2>Analytics</h2>
+          <Dropdown style="secondary" options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
+        </div>
 
-        <Dropdown style="secondary" options={rangeDropdownState} toggle={toggleRangeDropdown} align="left" />
-      </div>
-
-      <div style={{ height: "220px" }}>
-        <BarChart period={period} style={chartsStyle} theme={theme} />
+        <div className="analytics__chart">
+          <BarChart period={period} style={chartsStyle} theme={theme} />
+        </div>
       </div>
     </div>
   );

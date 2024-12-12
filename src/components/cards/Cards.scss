@@ -1,0 +1,44 @@
+@use "../../common" as *;
+
+.all_cards {
+  overflow: hidden;
+  //   max-width: 400px;
+
+  &__container {
+    @include column-fill;
+    min-height: 224px;
+    height: 100%;
+  }
+
+  &__header {
+    height: 3rem;
+    @include row-fill;
+  }
+
+  &__cards_stack {
+    position: relative;
+    //   transform: translateY(252px);
+    transform: translateY(24px);
+    height: 86px;
+    // margin: 0 auto;
+
+    @for $i from 1 through 10 {
+      & > :nth-child(#{$i}) {
+        top: calc(-24px * (#{$i} - 1));
+        z-index: calc(10 - #{$i});
+        position: absolute;
+        transition: top 0.3s ease;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &:hover {
+      @for $i from 1 through 10 {
+        & > :nth-child(#{$i}) {
+          top: calc(-48px * (#{$i} - 1));
+        }
+      }
+    }
+  }
+}

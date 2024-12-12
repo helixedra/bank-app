@@ -11,6 +11,7 @@
   flex-wrap: nowrap;
   text-wrap: nowrap;
   justify-content: center;
+  text-decoration: none;
 
   &_primary {
     [data-theme="light"] & {

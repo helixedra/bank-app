@@ -1,0 +1,76 @@
+@use "../../common" as *;
+
+.transactions_shortlist {
+  max-width: 992px;
+
+  &__header {
+    @include row-fill;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid;
+
+    [data-theme="light"] & {
+      border-color: $dark-5;
+    }
+    [data-theme="dark"] & {
+      border-color: rgba($dark-70, 0.3);
+    }
+
+    &__title {
+      font-size: $font-size-20;
+    }
+
+    &__actions {
+    }
+  }
+
+  &__list_item {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+
+    &__image {
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      border-radius: 2.5rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-right: 0.5rem;
+      background-image: url("./images/expense-default.png");
+    }
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      &__merchant_name {
+        font-size: $font-size-16;
+        margin-bottom: 0.25rem;
+      }
+
+      &__transaction_date {
+        font-size: $font-size-14;
+        color: $dark-40;
+      }
+      &__amount_currency {
+        font-size: $font-size-16;
+        margin-bottom: 0.25rem;
+        text-align: right;
+        font-weight: 500;
+      }
+      &__amount_main_currency {
+        font-size: $font-size-14;
+        color: $dark-40;
+        text-align: right;
+      }
+    }
+  }
+}
+
+// .type_expense {
+//   //   color: #ff5784;
+// }
+.type_income {
+  color: #00cb8b;
+}

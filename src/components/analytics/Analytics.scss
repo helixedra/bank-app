@@ -1,0 +1,19 @@
+@use "../../common" as *;
+
+.analytics {
+  display: none;
+
+  &__container {
+    @include column-fill;
+    height: 100%;
+  }
+
+  &__header {
+    @include row-fill;
+  }
+
+  &__chart {
+    padding: 1rem 0;
+    flex-grow: 1;
+  }
+}
