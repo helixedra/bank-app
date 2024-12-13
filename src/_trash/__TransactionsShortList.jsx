@@ -1,6 +1,6 @@
-import ButtonLink from "./ButtonLink";
+import ButtonLink from "../ButtonLink";
 import classes from "./TransactionsShortList.module.scss";
-import { formatDynamicDate } from "../utils/formatDynamicDate";
+import { formatDynamicDate } from "../../utils/formatDynamicDate";
 // import getSymbol from "../utils/getSymbol";
 // import exchangeToDefaultCurrency from "../utils/exchangeToDefaultCurrency";
 import DefaultAmount from "./DefaultAmount";

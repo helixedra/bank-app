@@ -1,0 +1,51 @@
+@use "../../styles/common" as *;
+
+@mixin size($size) {
+  height: $size;
+  line-height: $size;
+
+  &:has(.icon) {
+    padding-right: calc($size/1.5);
+  }
+
+  &:has(.after) {
+    padding-left: calc($size/1.5);
+  }
+}
+
+// input {
+//   background-color: transparent;
+//   border: none;
+// }
+.input {
+  // background-color: transparent !important;
+  // border: 1px solid;
+  // @include border;
+  outline: none;
+  border: none;
+  [data-theme="light"] & {
+    background-color: $white;
+    color: $dark-90;
+    border: 1px solid $dark-10;
+  }
+  [data-theme="dark"] & {
+    background-color: $dark-70;
+    color: $dark-5;
+  }
+  // color: $dark-90;
+  border-radius: 3rem;
+  height: 3rem;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  content: url("/images/close-fill.svg");
+  padding: 0.5rem;
+  height: 1em;
+  width: 1em;
+  cursor: pointer;
+}
+
+.label {
+  line-height: 40px;
+}

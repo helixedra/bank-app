@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Button from "./Button";
-import currency from "./../database/currency.json";
-import getSymbol from "../utils/getSymbol";
+import Button from "../Button";
+import currency from "../../database/currency.json";
+import getSymbol from "../../utils/getSymbol";
 import { RiArrowRightUpLine, RiArrowLeftDownLine } from "@remixicon/react";
 import Modal from "./Modal";
 import AccountAmount from "./AccountAmount";
-import TransferModal from "./TransferModal";
+import TransferModal from "../TransferModal";
 
 export default function AccountInfo({ userdata, state }) {
   const getExchangeRate = (cur) => {

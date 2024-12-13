@@ -1,8 +1,8 @@
-import ButtonLink from "../shared/ButtonLink";
+import ButtonLink from "./../shared/ButtonLink";
 import "./TransactionsShortList.scss";
-import { formatDynamicDate } from "../../utils/formatDynamicDate";
-import DefaultAmount from "../DefaultAmount";
-import BaseCurrencyAmount from "../BaseCurrencyAmount";
+import { formatDynamicDate } from "./../../utils/formatDynamicDate";
+import DefaultAmount from "./../global/DefaultAmount";
+import BaseCurrencyAmount from "./../global/BaseCurrencyAmount";
 import { useCallback, useEffect, useState } from "react";
 
 // ListItem Component

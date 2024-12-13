@@ -1,5 +1,5 @@
-import UserAvatar from "./UserAvatar";
-import Dropdown from "./Dropdown";
+import UserAvatar from "./__UserAvatar";
+import Dropdown from "../components/Dropdown";
 import { useState } from "react";
 import { RiUserLine, RiCustomerService2Line, RiLogoutCircleRLine, RiSettings4Line } from "@remixicon/react";
 

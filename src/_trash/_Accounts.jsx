@@ -1,11 +1,11 @@
 import { useState, useRef } from "react";
 import { RiArrowRightLine, RiArrowLeftLine, RiAddLine, RiSettings4Line } from "@remixicon/react";
-import Segment from "./Segment";
-import ImageIcon from "./ImageIcon";
+import Segment from "../components/Segment";
+import ImageIcon from "../components/ImageIcon";
 import CreditCard from "./CreditCard";
 import AccountInfo from "./AccountInfo";
 // import userdata from "./../database/userdata.json";
-import Button from "./Button";
+import Button from "../components/Button";
 import "./Accounts.scss";
 import { useSelector } from "react-redux";
 

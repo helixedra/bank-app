@@ -1,0 +1,43 @@
+@use "../../styles/common" as *;
+
+.pagination_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  gap: 8px;
+
+  button {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    border-radius: 40px;
+    &:hover {
+      [data-theme="light"] & {
+        background-color: $dark-10;
+      }
+      [data-theme="dark"] & {
+        background-color: $dark-70;
+      }
+    }
+  }
+}
+.pagination_arrow {
+  [data-theme="light"] & {
+    border: 1px solid $dark-10 !important;
+  }
+  [data-theme="dark"] & {
+    border: 1px solid $dark-70 !important;
+  }
+}
+
+.pagination__active {
+  [data-theme="light"] & {
+    background-color: $dark-10 !important;
+  }
+  [data-theme="dark"] & {
+    background-color: $dark-70 !important;
+  }
+}

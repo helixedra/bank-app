@@ -1,5 +1,4 @@
-@use "./../common" as *;
-@use "./Input.module.scss" as *;
+@use "../../styles/common" as *;
 
 .search_container {
   position: relative;
@@ -11,5 +10,5 @@
   left: 16px;
 }
 .input {
-  padding-left: 48px;
+  padding-left: 3rem;
 }

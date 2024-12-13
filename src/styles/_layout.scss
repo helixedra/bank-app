@@ -85,6 +85,24 @@ body {
   .desktop_menu {
     display: none;
   }
+  .transaction_item__amount__additional {
+    display: none;
+  }
+  .transaction_item__amount__additional {
+    display: none !important;
+  }
+  .transaction_item__category {
+    display: block !important;
+  }
+  .transaction_item__datetime_mobile {
+    display: block !important;
+  }
+  .transaction_item__bullet {
+    display: block !important;
+  }
+  .transactions__search {
+    display: block !important;
+  }
 }
 
 /* Large (LG) */
@@ -109,9 +127,29 @@ body {
   .desktop_menu {
     display: block;
   }
-
   .mobile_menu {
     display: none;
+  }
+  .transaction_item__date {
+    display: block !important;
+  }
+  .transaction_item__amount__additional {
+    display: block !important;
+  }
+  .transaction_item__category {
+    display: block !important;
+  }
+  .transaction_item__datetime_mobile {
+    display: none !important;
+  }
+  .transaction_item__bullet {
+    display: none !important;
+  }
+  .transaction_item__amount__additional {
+    display: none !important;
+  }
+  .transactions__search {
+    display: block !important;
   }
 }
 
@@ -150,5 +188,30 @@ body {
 
   .mobile_menu {
     display: none;
+  }
+  .transaction_item__status {
+    display: block !important;
+  }
+  .transaction_item__status_mobile {
+    display: none;
+  }
+  .transaction_item__date {
+    display: block !important;
+  }
+
+  .transaction_item__category {
+    display: block !important;
+  }
+  .transaction_item__datetime_mobile {
+    display: none !important;
+  }
+  .transaction_item__bullet {
+    display: none !important;
+  }
+  .transaction_item__amount__additional {
+    display: block !important;
+  }
+  .transactions__search {
+    display: block !important;
   }
 }

@@ -2,7 +2,7 @@
 // import Dropdown from "./components/Dropdown";
 import { RiBankFill, RiBankCardFill, RiFundsFill, RiShieldCheckFill, RiShakeHandsFill, RiExchangeFill } from "@remixicon/react";
 import classes from "./Services.module.scss";
-import Button from "./components/Button";
+import Button from "./../components/shared/Button";
 
 export default function Services() {
   const services = [

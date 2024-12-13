@@ -3,7 +3,7 @@
 import { RiNotification3Line } from "@remixicon/react";
 import btnClasses from "./Button.module.scss";
 import classes from "./NotificationsDropdown.module.scss";
-import { formatDynamicDate } from "./../utils/formatDynamicDate";
+import { formatDynamicDate } from "../../utils/formatDynamicDate";
 
 export default function Dropdown({ size = "l", type = "additional", options = { data: [], visibility: false }, toggle, listHeight = null }) {
   // const currentValue = options.data?.find((option) => option.active);

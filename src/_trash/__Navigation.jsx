@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import UserButton from "./UserButton";
 import NotificationButton from "./NotificationButton";
-import ThemeSwitcher from "./global/ThemeSwitcher";
+import ThemeSwitcher from "../global/ThemeSwitcher";
 export default function Navigation({ data }) {
   return (
     <nav>

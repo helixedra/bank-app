@@ -4,8 +4,11 @@ import MobileMenu from "./MobileMenu";
 import "./Navigation.scss";
 import DesktopMenu from "./DesktopMenu";
 import ThemeSwitcher from "./../global/ThemeSwitcher";
+import { useSelector } from "react-redux";
 
-export default function Navigation({ data }) {
+export default function Navigation() {
+  const userdata = useSelector((state) => state.userdata);
+
   const menu = [
     {
       id: "dashboard",
@@ -48,7 +51,7 @@ export default function Navigation({ data }) {
         </div>
 
         <div>
-          <UserButton userdata={data.userdata} />
+          <UserButton userdata={userdata} />
         </div>
       </div>
     </nav>

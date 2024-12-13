@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import NotificationsDropdown from "./NotificationsDropdown";
 import { useSelector, useDispatch } from "react-redux";
-import { updateNotifications } from "./../store/notificationsSlice";
+import { updateNotifications } from "../../store/notificationsSlice";
 
 export default function NotificationButton() {
   const notifications = useSelector((state) => state.notifications);

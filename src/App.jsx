@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/header/Navigation";
-import Dashboard from "./Dashboard";
-import Transactions from "./Transactions";
-import Support from "./Support";
-import Services from "./Services";
-import userdata from "./database/userdata.json"; // delete
+import Dashboard from "./pages/Dashboard";
+import Transactions from "./pages/Transactions";
+import Support from "./pages/Support";
+import Services from "./pages/Services";
+// import userdata from "./database/userdata.json"; // delete
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,9 +17,9 @@ export default function App() {
       <div className="wrapper">
         <Provider store={store}>
           <ToastContainer />
-          <Navigation data={{ userdata }} />
+          <Navigation />
           <Routes>
-            <Route path="/" element={<Dashboard data={{ userdata }} />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/transactions/:page" element={<Transactions />} />
             <Route path="/services" element={<Services />} />

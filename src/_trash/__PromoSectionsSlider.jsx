@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "../Button";
 
 export default function PromoSectionsSlider() {
   const promoImage = "promo01.jpg";
@@ -17,9 +17,7 @@ export default function PromoSectionsSlider() {
       <div>
         <div style={{ fontSize: "56px", fontWeight: "500" }}>Savings</div>
         <div>Maximise your growth</div>
-        <div
-          style={{ fontSize: "20px", marginTop: "32px", marginBottom: "72px" }}
-        >
+        <div style={{ fontSize: "20px", marginTop: "32px", marginBottom: "72px" }}>
           <span style={{ opacity: "0.6" }}>Up to</span> 5.00%
         </div>
       </div>

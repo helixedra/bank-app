@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import LineChart from "./LineChart";
 // import Segment from "./Segment";
-import Dropdown from "./Dropdown";
+import Dropdown from "../Dropdown";
 import BarChart from "./BarCharts";
 
 export default function ExpenseGraph() {

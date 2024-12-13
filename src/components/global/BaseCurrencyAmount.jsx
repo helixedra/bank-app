@@ -1,5 +1,5 @@
-import getSymbol from "../utils/getSymbol";
-import exchangeToDefaultCurrency from "../utils/exchangeToDefaultCurrency";
+import getSymbol from "./../../utils/getSymbol";
+import exchangeToDefaultCurrency from "./../../utils/exchangeToDefaultCurrency";
 
 // BaseCurrencyAmount Component
 function BaseCurrencyAmount({ options, currency, type, amount }) {
