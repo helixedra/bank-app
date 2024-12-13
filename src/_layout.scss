@@ -63,9 +63,12 @@ body {
   .all_cards {
     max-width: 100%;
   }
-  // .mobile_menu__list {
-  //   width: 100% !important;
-  // }
+  .mobile_menu {
+    display: block;
+  }
+  .desktop_menu {
+    display: none;
+  }
 }
 
 /* Medium (MD) */
@@ -76,9 +79,12 @@ body {
   .all_cards {
     max-width: 400px;
   }
-  // .mobile_menu__list {
-  //   width: 100%;
-  // }
+  .mobile_menu {
+    display: block;
+  }
+  .desktop_menu {
+    display: none;
+  }
 }
 
 /* Large (LG) */
@@ -101,8 +107,9 @@ body {
     min-width: 50vw;
   }
   .desktop_menu {
-    display: block !important;
+    display: block;
   }
+
   .mobile_menu {
     display: none;
   }
@@ -110,9 +117,6 @@ body {
 
 /* Extra Large (XL) */
 @media (min-width: 1280px) {
-  // .container {
-  //   max-width: 1140px;
-  // }
   .wrapper {
     padding: $gap-desktop;
   }
@@ -141,8 +145,9 @@ body {
     max-width: 400px;
   }
   .desktop_menu {
-    display: block !important;
+    display: block;
   }
+
   .mobile_menu {
     display: none;
   }

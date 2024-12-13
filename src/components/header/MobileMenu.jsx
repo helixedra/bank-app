@@ -1,12 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { RiMenu2Line, RiCloseLargeLine } from "@remixicon/react";
-import "./Menu.scss";
-import { useEffect, useState } from "react";
+import "./Navigation.scss";
+import { useState } from "react";
 
 export default function MobileMenu({ menu }) {
   const [menuState, setMenuState] = useState(false);
-
-  const closeMenu = () => setMenuState(false);
 
   const mobileMenu = menu.map((item) => (
     <div key={item.id} className="mobile_menu__list__item">
@@ -16,27 +14,35 @@ export default function MobileMenu({ menu }) {
     </div>
   ));
 
-  useEffect(() => {
-    if (menuState) {
-      document.querySelector("body").classList.add("overflow-hidden");
-    } else {
-      document.querySelector("body").classList.remove("overflow-hidden");
-    }
+  function closeMenu() {
+    document.querySelector(".wrapper").classList.remove("side_menu_open");
+    document.querySelector(".wrapper").classList.add("side_menu_close");
+    setMenuState(false);
+  }
+  function openMenu() {
+    document.querySelector(".wrapper").classList.remove("side_menu_close");
+    document.querySelector(".wrapper").classList.add("side_menu_open");
+    setMenuState(true);
+  }
 
-    // return () => {
-    //   second
-    // }
-  }, [menuState]);
+  function handleMobileMenu() {
+    menuState ? closeMenu() : openMenu();
+  }
 
   return (
     <>
       <div className={`mobile_menu__backdrop ${!menuState ? "hidden" : ""}`} onClick={closeMenu}></div>
-      <div className="mobile_menu">
-        <div className="mobile_menu__burger" onClick={() => setMenuState((prev) => !prev)}>
-          {!menuState ? <RiMenu2Line /> : <RiCloseLargeLine />}
+      <div className="mobile_menu__container">
+        <div className="mobile_menu__burger" onClick={handleMobileMenu}>
+          <RiMenu2Line />
         </div>
 
-        <div className={`mobile_menu__list ${menuState ? "menu_opened" : "menu_closed"}`}>{mobileMenu}</div>
+        <div className={`mobile_menu__list ${menuState ? "menu_opened" : "menu_closed"}`}>
+          <button className="mobile_menu__close" onClick={handleMobileMenu}>
+            <RiCloseLargeLine />
+          </button>
+          {mobileMenu}
+        </div>
       </div>
     </>
   );

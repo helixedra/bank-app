@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { switchTheme } from "../../store/settingsSlice";
+import { RiMoonLine, RiSunLine } from "@remixicon/react";
 
 const ThemeSwitcher = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,11 @@ const ThemeSwitcher = () => {
     dispatch(switchTheme(newTheme));
   };
 
-  return <button onClick={toggleTheme}>{theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}</button>;
+  return (
+    <button className="theme_switcher" onClick={toggleTheme}>
+      {theme === "light" ? <RiMoonLine /> : <RiSunLine />}
+    </button>
+  );
 };
 
 export default ThemeSwitcher;

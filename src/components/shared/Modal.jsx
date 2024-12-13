@@ -25,16 +25,16 @@ export default function Modal({ visibility, children, handler, header = true, ti
 
   return (
     <dialog ref={dialogRef} className="modal" onClick={handleBackdropClick}>
-      <div className="modal_container">
+      <div className="modal__container">
         {header && (
-          <div className="modal_header">
+          <div className="modal__header">
             {title}
-            <button className="modal_close" onClick={handleCloseButton}>
+            <button className="modal__close" onClick={handleCloseButton}>
               <RiCloseLargeLine />
             </button>
           </div>
         )}
-        {children}
+        <div className="modal__content">{children}</div>
       </div>
     </dialog>
   );

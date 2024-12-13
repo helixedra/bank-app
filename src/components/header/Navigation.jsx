@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
-// import UserButton from "./UserButton";
-// import NotificationButton from "./NotificationButton";
-import ThemeSwitcher from "./../global/ThemeSwitcher";
+import UserButton from "./UserButton";
+import Notifications from "./Notifications";
 import MobileMenu from "./MobileMenu";
-import "./Menu.scss";
+import "./Navigation.scss";
+import DesktopMenu from "./DesktopMenu";
+import ThemeSwitcher from "./../global/ThemeSwitcher";
 
 export default function Navigation({ data }) {
   const menu = [
@@ -29,44 +29,28 @@ export default function Navigation({ data }) {
     },
   ];
 
-  const desktopMenu = menu.map((item) => (
-    <li key={item.id} className="desktop_menu__menu_item">
-      <NavLink to={item.link}>{item.name}</NavLink>
-    </li>
-  ));
-
   return (
     <nav>
-      <div className="hidden">
-        <ThemeSwitcher />
+      <div className="desktop_menu">
+        <DesktopMenu menu={menu} />
       </div>
 
-      <div className="desktop_menu hidden">
-        <ul className="desktop_menu__container">
-          {desktopMenu}
-          {/* <li>
-          <NavLink to="/">Dashboard</NavLink>
-        </li>
-        <li>
-          <NavLink to="/transactions">Transactions</NavLink>
-        </li>
-        <li>
-          <NavLink to="/services">Services</NavLink>
-        </li>
-        <li>
-          <NavLink to="/support">Support</NavLink>
-        </li>
-      </ul>
-      <ul className="user_controls">
-        <li>
-          <NotificationButton />
-        </li>
-        <li>
-          <UserButton userdata={data.userdata} />
-        </li> */}
-        </ul>
+      <div className="mobile_menu">
+        <MobileMenu menu={menu} />
       </div>
-      <MobileMenu menu={menu} />
+
+      <div className="user_controls">
+        <div>
+          <ThemeSwitcher />
+        </div>
+        <div>
+          <Notifications />
+        </div>
+
+        <div>
+          <UserButton userdata={data.userdata} />
+        </div>
+      </div>
     </nav>
   );
 }
