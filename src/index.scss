@@ -1,4 +1,6 @@
 @use "styles/common" as *;
+@use "styles/reset";
+// @use "styles/layout";
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
@@ -92,4 +94,61 @@ dialog::backdrop {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+
+.wrapper {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+body {
+  [data-theme="light"] & {
+    background-color: $dark-5;
+    color: $dark-90;
+  }
+
+  [data-theme="dark"] & {
+    background-color: $dark-90;
+    color: $dark-5;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row !important;
+  }
+}
+
+.block_container {
+  background-color: $white;
+  border-radius: $border-radius;
+  height: auto;
+  width: 100%;
+  padding: 1rem;
+
+  [data-theme="light"] & {
+    background-color: $white;
+    color: $dark-90;
+  }
+
+  [data-theme="dark"] & {
+    background-color: $dark-80;
+  }
+
+  & .block_title {
+    font-size: $card-title;
+    padding-left: 0.5rem;
+  }
+}
+.responsive_container {
+  @media (min-width: 992px) {
+    min-width: 50vw;
+  }
 }

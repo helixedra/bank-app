@@ -3,6 +3,10 @@
 .transactions_shortlist {
   max-width: 992px;
 
+  @media (min-width: 992px) {
+    max-width: 100%;
+  }
+
   &__header {
     @include row-fill;
     padding-bottom: 1rem;

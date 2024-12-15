@@ -5,7 +5,12 @@
   gap: 1rem;
   flex-wrap: wrap;
   flex-direction: column;
+
+  @media (min-width: 992px) {
+    flex-direction: row !important;
+  }
 }
+
 .services {
   padding: 1rem 1.5rem;
   flex: 2;
@@ -54,6 +59,10 @@
       font-size: $font-size-16;
       color: $dark-50;
       display: none;
+
+      @media (min-width: 768px) {
+        display: block !important;
+      }
     }
   }
 }

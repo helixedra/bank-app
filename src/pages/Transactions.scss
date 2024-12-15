@@ -36,11 +36,20 @@
 
     &__desktop {
       display: none !important;
+
+      @media (min-width: 768px) {
+        display: block !important;
+      }
     }
 
     &__mobile {
       position: absolute;
       width: 100%;
+      // display: none;
+
+      @media (min-width: 768px) {
+        display: none !important;
+      }
 
       &__input_container {
         display: flex;
@@ -54,8 +63,8 @@
 
 .transaction_item {
   @include row-fill;
-  border-bottom: 1px solid;
   @include border;
+  border-bottom: 1px solid;
   padding: 1rem 0.5rem;
   cursor: pointer;
 
@@ -101,10 +110,12 @@
   }
 
   &__date {
-    // width: 30%;
-    // min-width: 200px;
     flex: 2 1 0%;
     display: none;
+
+    @media (min-width: 992px) {
+      display: block !important;
+    }
 
     &__date {
       margin-bottom: 4px;
@@ -118,20 +129,40 @@
 
   &__category {
     display: none;
+
+    @media (min-width: 768px) {
+      display: block !important;
+    }
   }
 
   &__bullet {
     margin: 0 0.25rem;
     display: none;
+
+    @media (min-width: 768px) {
+      display: block !important;
+    }
+
+    @media (min-width: 992px) {
+      display: none !important;
+    }
   }
 
   &__datetime_mobile {
+    display: block;
+    @media (min-width: 992px) {
+      display: none !important;
+    }
   }
 
   &__status {
     display: none;
     text-align: center;
     flex: 1 1 0%;
+
+    @media (min-width: 1280px) {
+      display: block !important;
+    }
 
     &__item {
       display: flex;
@@ -152,6 +183,12 @@
   }
 
   &__status_mobile {
+    display: block;
+
+    @media (min-width: 1280px) {
+      display: none !important;
+    }
+
     & * {
       background: none !important;
       // padding: 0.25rem;
@@ -186,6 +223,10 @@
       text-wrap: nowrap;
       font-size: $font-size-14;
       color: $dark-50;
+
+      @media (min-width: 1280px) {
+        display: block !important;
+      }
     }
   }
 }

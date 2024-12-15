@@ -1,251 +1,188 @@
 @use "./variables" as *;
 @use "sass:color";
 
-$gap-desktop: 16px;
-$gap-mobile: 16px;
+// /* Small (SM) */
+// @media (min-width: 576px) {
+//   // .all_cards {
 
-.wrapper {
-  padding: $gap-mobile;
-  margin: 0 auto;
-  max-width: 1440px;
-}
-
-body {
-  [data-theme="light"] & {
-    background-color: $dark-5;
-    color: $dark-90;
-  }
-
-  [data-theme="dark"] & {
-    background-color: $dark-90;
-    color: $dark-5;
-  }
-}
-
-.row {
-  display: flex;
-  flex-direction: column;
-  gap: $gap-mobile;
-  margin-bottom: $gap-mobile;
-  justify-content: space-between;
-}
-
-.block_container {
-  background-color: $white;
-  border-radius: $border-radius;
-  height: auto;
-  width: 100%;
-  padding: $gap-mobile;
-
-  [data-theme="light"] & {
-    background-color: $white;
-    color: $dark-90;
-  }
-
-  [data-theme="dark"] & {
-    background-color: $dark-80;
-  }
-
-  & .block_title {
-    font-size: $card-title;
-    padding-left: 0.5rem;
-  }
-}
-
-/* Small (SM) */
-@media (min-width: 576px) {
-  .row {
-    gap: $gap-mobile;
-  }
-  .analytics {
-    display: none;
-  }
-  .all_cards {
-    max-width: 100%;
-  }
-  .mobile_menu {
-    display: block;
-  }
-  .desktop_menu {
-    display: none;
-  }
-}
+//   // }
+//   // .mobile_menu {
+//   //   display: block;
+//   // }
+//   // .desktop_menu {
+//   //   display: none;
+//   // }
+// }
 
 /* Medium (MD) */
 @media (min-width: 768px) {
-  .row {
-    flex-direction: row;
-  }
-  .all_cards {
-    max-width: 400px;
-  }
-  .mobile_menu {
-    display: block;
-  }
-  .desktop_menu {
-    display: none;
-  }
-  .transaction_item__amount__additional {
-    display: none;
-  }
-  .transaction_item__amount__additional {
-    display: none !important;
-  }
-  .transaction_item__category {
-    display: block !important;
-  }
-  .transaction_item__datetime_mobile {
-    display: block !important;
-  }
-  .transaction_item__bullet {
-    display: block !important;
-  }
+  // .mobile_menu {
+  //   display: block;
+  // }
+  // .desktop_menu {
+  //   display: none;
+  // }
+  // .transaction_item__amount__additional {
+  //   display: none;
+  // }
+  // .transaction_item__amount__additional {
+  //   display: none !important;
+  // }
+  // .transaction_item__category {
+  //   display: block !important;
+  // }
+  // .transaction_item__datetime_mobile {
+  //   display: block !important;
+  // }
+  // .transaction_item__bullet {
+  //   display: block !important;
+  // }
   // .transactions__search {
   //   display: block !important;
   // }
-  .services__item__info__description {
-    display: block !important;
-  }
-  .transactions__search__desktop {
-    display: block !important;
-  }
-  .transactions__search__mobile {
-    display: none !important;
-  }
+  // .services__item__info__description {
+  //   display: block !important;
+  // }
+  // .transactions__search__desktop {
+  //   display: block !important;
+  // }
+  // .transactions__search__mobile {
+  //   display: none !important;
+  // }
 }
 
 /* Large (LG) */
 @media (min-width: 992px) {
-  .wrapper {
-  }
-  .row {
-    flex-direction: row;
-  }
-  .analytics {
-    display: none;
-  }
-  .all_cards {
-    max-width: 400px;
-  }
-  .transactions_shortlist {
-    max-width: 100%;
-  }
-  .responsive_container {
-    min-width: 50vw;
-  }
-  .desktop_menu {
-    display: block;
-  }
-  .mobile_menu {
-    display: none;
-  }
-  .transaction_item__date {
-    display: block !important;
-  }
-  .transaction_item__amount__additional {
-    display: block !important;
-  }
-  .transaction_item__category {
-    display: block !important;
-  }
-  .transaction_item__datetime_mobile {
-    display: none !important;
-  }
-  .transaction_item__bullet {
-    display: none !important;
-  }
-  .transaction_item__amount__additional {
-    display: none !important;
-  }
+  // .wrapper {
+  // }
+  // .row {
+  //   flex-direction: row;
+  // }
+  // .analytics {
+  //   display: none;
+  // }
+  // .all_cards {
+  //   max-width: 400px;
+  // }
+  // .transactions_shortlist {
+  //   max-width: 100%;
+  // }
+  // .responsive_container {
+  //   min-width: 50vw;
+  // }
+  // .desktop_menu {
+  //   display: block;
+  // }
+  // .mobile_menu {
+  //   display: none;
+  // }
+  // .transaction_item__date {
+  //   display: block !important;
+  // }
+  // .transaction_item__amount__additional {
+  //   display: block !important;
+  // }
+  // .transaction_item__category {
+  //   display: block !important;
+  // }
+  // .transaction_item__datetime_mobile {
+  //   display: none !important;
+  // }
+  // .transaction_item__bullet {
+  //   display: none !important;
+  // }
+  // .transaction_item__amount__additional {
+  //   display: none !important;
+  // }
   // .transactions__search {
   //   display: block !important;
   // }
-  .services_wrapper {
-    flex-direction: row !important;
-  }
-  .services__item__info__description {
-    display: block !important;
-  }
-  .transactions__search__desktop {
-    display: block !important;
-  }
-  .transactions__search__mobile {
-    display: none !important;
-  }
+  // .services_wrapper {
+  //   flex-direction: row !important;
+  // }
+  // .services__item__info__description {
+  //   display: block !important;
+  // }
+  // .transactions__search__desktop {
+  //   display: block !important;
+  // }
+  // .transactions__search__mobile {
+  //   display: none !important;
+  // }
 }
 
 /* Extra Large (XL) */
 @media (min-width: 1280px) {
-  .wrapper {
-    padding: $gap-desktop;
-  }
-  .row {
-    gap: $gap-desktop;
-    flex-direction: row;
-    margin-bottom: $gap-desktop;
-  }
-  .block_container {
-    padding: $gap-desktop;
-  }
+  // .wrapper {
+  //   padding: 1rem;
+  // }
+  // .row {
+  //   gap: 1rem;
+  //   flex-direction: row;
+  //   margin-bottom: 1rem;
+  // }
+  // .block_container {
+  //   padding: 1rem;
+  // }
 
-  .analytics {
-    display: block !important;
-    max-width: 400px;
-  }
+  // .analytics {
+  //   display: block !important;
+  //   max-width: 400px;
+  // }
 
-  .accounts_header__chart_button {
-    display: none;
-  }
-  .all_cards {
-    max-width: 400px;
-  }
-  .promo_section {
-    display: block !important;
-    max-width: 400px;
-  }
-  .desktop_menu {
-    display: block;
-  }
+  // .accounts_header__chart_button {
+  //   display: none;
+  // }
+  // .all_cards {
+  //   max-width: 400px;
+  // }
+  // .promo_section {
+  //   display: block !important;
+  //   max-width: 400px;
+  // }
+  // .desktop_menu {
+  //   display: block;
+  // }
 
-  .mobile_menu {
-    display: none;
-  }
-  .transaction_item__status {
-    display: block !important;
-  }
-  .transaction_item__status_mobile {
-    display: none;
-  }
-  .transaction_item__date {
-    display: block !important;
-  }
+  // .mobile_menu {
+  //   display: none;
+  // }
+  // .transaction_item__status {
+  //   display: block !important;
+  // }
+  // .transaction_item__status_mobile {
+  //   display: none;
+  // }
+  // .transaction_item__date {
+  //   display: block !important;
+  // }
 
-  .transaction_item__category {
-    display: block !important;
-  }
-  .transaction_item__datetime_mobile {
-    display: none !important;
-  }
-  .transaction_item__bullet {
-    display: none !important;
-  }
-  .transaction_item__amount__additional {
-    display: block !important;
-  }
+  // .transaction_item__category {
+  //   display: block !important;
+  // }
+  // .transaction_item__datetime_mobile {
+  //   display: none !important;
+  // }
+  // .transaction_item__bullet {
+  //   display: none !important;
+  // }
+  // .transaction_item__amount__additional {
+  //   display: block !important;
+  // }
   // .transactions__search {
   //   display: block !important;
   // }
-  .services_wrapper {
-    flex-direction: row !important;
-  }
+  // .services_wrapper {
+  //   flex-direction: row !important;
+  // }
 
-  .services__item__info__description {
-    display: block !important;
-  }
-  .transactions__search__desktop {
-    display: block !important;
-  }
-  .transactions__search__mobile {
-    display: none !important;
-  }
+  // .services__item__info__description {
+  //   display: block !important;
+  // }
+  // .transactions__search__desktop {
+  //   display: block !important;
+  // }
+  // .transactions__search__mobile {
+  //   display: none !important;
+  // }
 }

@@ -2,6 +2,13 @@
 
 .accounts_header {
   @include row-fill;
+
+  &__chart_button {
+    display: block;
+    @media (min-width: 1280px) {
+      display: none !important;
+    }
+  }
 }
 
 .checkbox_fill {

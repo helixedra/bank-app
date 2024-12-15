@@ -28,6 +28,12 @@
 }
 
 .mobile_menu {
+  display: block;
+
+  @media (min-width: 992px) {
+    display: none !important;
+  }
+
   &__close {
     padding: 1.5rem;
     opacity: 0.3;
@@ -77,10 +83,6 @@
             color: $dark-10;
           }
         }
-
-        &:hover {
-          // opacity: 0.6;
-        }
       }
     }
   }
@@ -104,6 +106,10 @@
 }
 .desktop_menu {
   display: none; //default
+
+  @media (min-width: 992px) {
+    display: block !important;
+  }
 
   &__container {
     @include row-fill;

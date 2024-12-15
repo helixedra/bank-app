@@ -9,6 +9,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media (min-width: 1280px) {
+    display: block !important;
+    max-width: 400px;
+  }
+
   &__content {
     @include column-fill;
     height: 100%;
