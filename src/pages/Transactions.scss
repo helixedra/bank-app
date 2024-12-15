@@ -14,15 +14,42 @@
     border-bottom: 1px solid;
     @include border;
 
-    & > div {
-      display: inherit;
+    &__left_side {
+      flex-grow: 1;
+      position: relative;
+    }
+    &__right_side {
+      display: flex;
       gap: 1rem;
     }
+
+    // & > div {
+    //   display: inherit;
+    //   gap: 1rem;
+    // }
   }
 
   &__search {
-    display: none;
+    // display: none;
+    height: 2.5rem;
+    position: relative;
+
+    &__desktop {
+      display: none !important;
+    }
+
+    &__mobile {
+      position: absolute;
+      width: 100%;
+
+      &__input_container {
+        display: flex;
+      }
+    }
   }
+}
+.mobile_search_input {
+  width: 100%;
 }
 
 .transaction_item {

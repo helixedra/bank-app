@@ -9,11 +9,11 @@
   gap: 8px;
 
   button {
-    width: 40px;
-    height: 40px;
+    width: $ui-element-size;
+    height: $ui-element-size;
     background: none;
     border: none;
-    border-radius: 40px;
+    border-radius: $ui-element-size;
     &:hover {
       [data-theme="light"] & {
         background-color: $dark-10;

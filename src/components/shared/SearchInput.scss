@@ -4,6 +4,12 @@
   position: relative;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+
+  &__input {
+    // flex-grow: 1;
+    width: 100%;
+  }
 }
 .search_icon {
   position: absolute;
@@ -11,4 +17,12 @@
 }
 .input {
   padding-left: 3rem;
+}
+.search_mobile__container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.search_mobile__container__close {
+  margin-left: 0.5rem;
 }

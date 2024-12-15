@@ -12,14 +12,6 @@ main {
   animation: blockAnimation 0.5s ease-in-out;
 }
 
-.user_avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 48px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .user_button {
   background: none;
   border: none;
@@ -100,9 +92,4 @@ dialog::backdrop {
 }
 .overflow-hidden {
   overflow: hidden;
-}
-
-.theme_switcher {
-  width: 3rem;
-  height: 3rem;
 }

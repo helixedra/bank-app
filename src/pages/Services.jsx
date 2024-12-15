@@ -1,8 +1,8 @@
-// import { useState } from "react";
-// import Dropdown from "./components/Dropdown";
 import { RiBankFill, RiBankCardFill, RiFundsFill, RiShieldCheckFill, RiShakeHandsFill, RiExchangeFill } from "@remixicon/react";
-import classes from "./Services.module.scss";
-import Button from "./../components/shared/Button";
+import "./Services.scss";
+// import Button from "./../components/shared/Button";
+// import PromoSections from "../components/promo/PromoSection";
+import Button from "../components/shared/Button";
 
 export default function Services() {
   const services = [
@@ -43,77 +43,56 @@ export default function Services() {
       description: "Competitive rates for foreign currency transactions.",
     },
   ];
-  // const dropdownTestOptions = [
-  //   { id: 1, name: "Option 1", action: () => handleDropdownTest(1), before: null, after: null, active: true },
-  //   { id: 2, name: "Option 2", action: () => handleDropdownTest(2), before: null, after: <RiBankLine />, active: false },
-  //   { id: 3, name: "Option 3", action: () => handleDropdownTest(3), before: <RiBankLine />, after: <RiBankLine />, active: false },
-  // ];
-  // const [dropdownTestState, setDropdownTestState] = useState({ data: dropdownTestOptions, visibility: false });
 
-  // function handleDropdownTest(id) {
-  //   // Update state
-  //   setDropdownTestState((prev) => {
-  //     const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
-  //     const newVisibility = !prev.visibility;
-  //     return { data: newData, visibility: newVisibility };
-  //   });
-  //   // Actions
-  //   // DO SOME ACTION...
-  // }
-
-  // function toggleDropdownTest() {
-  //   setDropdownTestState((prev) => {
-  //     return { data: prev.data, visibility: !prev.visibility };
-  //   });
-  // }
   const servicesList = services.map((item) => <ServicesItem {...item} key={item.id} />);
 
+  const promoImage = "image_21.png";
+
   return (
-    <main>
-      <div className="container">
-        <div className="row mt-6">
-          <div className="col-8">
-            <div className={classes.services}>
-              <div className={classes.services_header}>
-                <h2>Our Services</h2>
-                <Button type="secondary">View All Services</Button>
-              </div>
-              <div className={classes.services_content}>{servicesList}</div>
+    <div className="services_wrapper">
+      <div className="block_container services">
+        {/* <div className="services__header">
+          <h2>Our Services</h2>
+          <Button style="secondary">View All</Button>
+        </div> */}
+        <div className="services__content">{servicesList}</div>
+      </div>
+
+      <div
+        className="block_container promo"
+        style={{
+          backgroundImage: `url('/images/${promoImage}')`,
+        }}
+      >
+        <div className="promo__content">
+          <div className="promo__content__header">
+            <div className="promo__content__header__title">Get a Loan</div>
+            <div className="promo__content__header__description">
+              Need Extra Cash? Get a Loan <br />
+              with Special Rates!
             </div>
           </div>
-          <div className="col-4">
-            <div className={classes.promo}>
-              <div className={classes.promo_header}>
-                <h1>Get a Loan</h1>
-                <div className={classes.promo_text}>
-                  Need Extra Cash? Get a Loan
-                  <br /> with Special Rates!
-                </div>
-              </div>
-              <div className={classes.promo_footer}>
-                <div>
-                  <div style={{ fontSize: "32px", fontWeight: "bold" }}>5.99%</div>
-                  <div style={{ fontSize: "20px" }}>Low interest rates</div>
-                </div>
-                <Button type="secondary">Learn More</Button>
-              </div>
+
+          <div className="promo__content__footer">
+            <div className="promo__content__footer__info">
+              <div className="promo__content__footer__info__percent">5.99%</div>
+              <div className="promo__content__footer__info__text">Low interest rates</div>
             </div>
+            <Button style="secondary">Learn More</Button>
           </div>
         </div>
       </div>
-
-      {/* <Dropdown options={dropdownTestState} toggle={toggleDropdownTest} /> */}
-    </main>
+    </div>
   );
 }
 
 function ServicesItem({ icon, title, description }) {
   return (
-    <div className={classes.services_item}>
-      <div className={classes.services_item_icon}>{icon}</div>
-      <div className={classes.services_item_info}>
-        <div className={classes.services_item_info_title}>{title}</div>
-        <div className={classes.services_item_info_description}>{description}</div>
+    <div className="services__item">
+      <div className="services__item__icon">{icon}</div>
+      <div className="services__item__info">
+        <div className="services__item__info__title">{title}</div>
+        <div className="services__item__info__description">{description}</div>
       </div>
     </div>
   );

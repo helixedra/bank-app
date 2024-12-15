@@ -41,9 +41,18 @@ $spacing-steps: 10;
   }
 }
 
+@mixin base-background {
+  [data-theme="light"] & {
+    background-color: $dark-10;
+  }
+  [data-theme="dark"] & {
+    background: $dark-70;
+  }
+}
+
 @mixin border {
   [data-theme="light"] & {
-    border-color: $dark-10;
+    border-color: $dark-5;
   }
   [data-theme="dark"] & {
     border-color: rgba($dark-70, 0.3);

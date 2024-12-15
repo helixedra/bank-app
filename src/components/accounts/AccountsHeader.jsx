@@ -16,9 +16,8 @@ export default function AccountsHeader({ account, action }) {
     <>
       <div className="accounts_header">
         <div className="accounts_header__account_switcher">
-          <Button style={"secondary"} action={action}>
-            <span className="icon_stack">{account.icon}</span>
-            <span>{account.name}</span>
+          <Button style={"secondary"} action={action} icon={<span className="icon_stack">{account.icon}</span>}>
+            {account.name}
           </Button>
         </div>
         <div className="accounts_header__chart_button">

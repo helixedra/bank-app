@@ -1,0 +1,9 @@
+@use "../../styles/common" as *;
+
+.user_avatar {
+  width: $ui-element-size;
+  height: $ui-element-size;
+  border-radius: $ui-element-size;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

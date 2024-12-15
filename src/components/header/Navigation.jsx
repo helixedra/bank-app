@@ -33,7 +33,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav>
+    <nav className="header">
       <div className="desktop_menu">
         <DesktopMenu menu={menu} />
       </div>

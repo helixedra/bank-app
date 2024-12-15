@@ -8,7 +8,10 @@ import { getTime, getDateFormatted } from "./../utils/formatDynamicDate";
 import BaseCurrencyAmount from "./../components/global/BaseCurrencyAmount";
 import DefaultAmount from "./../components/global/DefaultAmount";
 import PaginationControls from "./../components/shared/PaginationControls";
-import { RiPieChartLine, RiSearchLine, RiEqualizer2Line, RiExportLine, RiTimeFill, RiCheckDoubleLine, RiCloseCircleFill } from "@remixicon/react";
+import IconButton from "./../components/shared/IconButton";
+import { RiPieChartLine, RiSearchLine, RiEqualizer2Line, RiExportLine, RiTimeFill, RiCheckDoubleLine, RiCloseCircleFill, RiCloseLargeLine } from "@remixicon/react";
+
+// import IconButton from "./IconButton";
 
 export default function Transactions() {
   const transactionsDataInitial = useSelector((state) => state.transactions); // Get Transactions
@@ -48,6 +51,8 @@ export default function Transactions() {
   });
   const paginatedData = transactions.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
+  const [searchMobile, setSearchMobile] = useState(false);
+
   return (
     <main>
       <div className="block_container transactions">
@@ -57,10 +62,21 @@ export default function Transactions() {
               Chart
             </Button> */}
             <div className="transactions__search">
-              <SearchInput icon={<RiSearchLine />} placeholder="Search" value={searchQuery} handler={handleSearch} name="search" />
+              <div className="transactions__search__desktop">
+                <SearchInput placeholder="Search" value={searchQuery} handler={handleSearch} name="search" />
+              </div>
+
+              <div className="transactions__search__mobile">
+                {!searchMobile && <IconButton style="secondary" className="search_mobile__container__search_icon" icon={<RiSearchLine />} action={() => setSearchMobile((prev) => !prev)} />}
+
+                <div className={`transactions__search__mobile__input_container ${!searchMobile ? "hidden" : ""}`}>
+                  <SearchInput className="mobile_search_input" placeholder="Search" value={searchQuery} handler={handleSearch} name="search" />
+                  <IconButton className="search_mobile__container__close" style={"secondary"} icon={<RiCloseLargeLine />} action={() => setSearchMobile((prev) => !prev)} />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="transactions__header__right_side">
+          <div className={`transactions__header__right_side ${searchMobile ? "hidden" : ""}`}>
             <Button style="secondary" icon={<RiEqualizer2Line />}>
               Filter
             </Button>

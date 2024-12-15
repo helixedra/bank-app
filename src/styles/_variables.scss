@@ -1,15 +1,6 @@
-// $dark-90: #272727;
-// $dark-20: #f0f1f4;
-// $dark-20: #d5d5de;
-// $gray-1: #f0f1f4;
-// $dark-10: #f0f1f4;
-$border-radius: 16px;
-// $dark-50: #808187;
-// $dark-50-2: #7E7E7E;
+$border-radius: 1rem;
 $text-green: #00a452;
 $bg-green: #00ff80;
-
-//
 
 // Dark colors
 $dark-90: hsl(0, 0%, 10%);
@@ -41,3 +32,5 @@ $card-title: 1.25rem;
 
 $list-hover-bg-light: rgba($dark-5, 0.5);
 $list-hover-bg-dark: rgba($dark-90, 0.15);
+
+$ui-element-size: 2.5rem; // 40px
