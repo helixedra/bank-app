@@ -30,35 +30,47 @@ export default function Accounts({ userdata }) {
 
   const [selectedAccount, setSelectedAccount] = useState(accountItemsInitial.filter((account) => account.id === "all-accounts")[0]);
 
-  const [accountsModal, setAccountsModal] = useState(false);
+  const modalsStateInitial = {
+    accounts: false,
+    transfer: false,
+    request: false,
+    exchange: false,
+    more: false,
+  };
 
-  function toggleAccountsModal() {
-    setAccountsModal((prev) => !prev);
+  const [modalsState, setModalsState] = useState(modalsStateInitial);
+
+  function toggleModal(modal) {
+    setModalsState((prev) => ({ ...prev, [modal]: !prev[modal] }));
   }
 
   function handleAccountsModal(id = false) {
     setSelectedAccount(id ? accountItemsInitial.filter((account) => account.id === id)[0] : accountItemsInitial.filter((account) => account.id === "all-accounts")[0]);
-    toggleAccountsModal();
+    toggleModal("accounts");
   }
 
-  function handleAccountButtons(action) {}
+  // function handleAccountButtons(action) {}
 
   return (
     <>
       <div className="accounts">
-        <AccountsHeader account={selectedAccount} action={toggleAccountsModal} />
+        <AccountsHeader account={selectedAccount} action={() => toggleModal("accounts")} />
         <AccountsAmount userdata={userdata} selectedAccount={selectedAccount.id} selectedAccountName={selectedAccount.name} />
         <AccountsButtons>
-          <IconButton icon={<RiArrowUpLine />} style="primary" text={"Request"} action={() => handleAccountButtons("request")} />
-          <IconButton icon={<RiArrowDownLine />} style="primary" text={"Transfer"} action={() => handleAccountButtons("transfer")} />
-          <IconButton icon={<RiArrowLeftRightLine />} style="primary" text={"Exchange"} action={() => handleAccountButtons("exchange")} />
-          <IconButton icon={<RiMoreFill />} style="primary" text={"More"} action={() => handleAccountButtons("more")} />
+          <IconButton icon={<RiArrowUpLine />} style="primary" text={"Request"} action={() => toggleModal("request")} />
+          <IconButton icon={<RiArrowDownLine />} style="primary" text={"Transfer"} action={() => toggleModal("transfer")} />
+          <IconButton icon={<RiArrowLeftRightLine />} style="primary" text={"Exchange"} action={() => toggleModal("exchange")} />
+          <IconButton icon={<RiMoreFill />} style="primary" text={"More"} action={() => toggleModal("more")} />
         </AccountsButtons>
       </div>
 
-      <Modal visibility={accountsModal} handler={toggleAccountsModal} title="Accounts">
+      <Modal visibility={modalsState.accounts} handler={() => toggleModal("accounts")} title="Accounts">
         <AccountsListModal accounts={userdata.accounts} active={selectedAccount} handler={handleAccountsModal} />
       </Modal>
+      <Modal visibility={modalsState.transfer} handler={() => toggleModal("transfer")} title="Transfer"></Modal>
+      <Modal visibility={modalsState.request} handler={() => toggleModal("request")} title="Request"></Modal>
+      <Modal visibility={modalsState.exchange} handler={() => toggleModal("exchange")} title="Exchange"></Modal>
+      <Modal visibility={modalsState.more} handler={() => toggleModal("more")} title="More"></Modal>
     </>
   );
 }
