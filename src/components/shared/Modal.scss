@@ -8,6 +8,7 @@
   // overflow: hidden;
   z-index: 7;
   border: none;
+  overflow: visible;
 
   [data-theme="light"] & {
     background-color: $white;

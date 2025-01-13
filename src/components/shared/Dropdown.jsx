@@ -13,7 +13,7 @@ export default function Dropdown({ style = "additional", options = { data: [], v
   };
 
   return (
-    <div className="dropdown_container">
+    <div className="dropdown_container" style={width ? { width: `${width}` } : undefined}>
       <div className={options.visibility ? `backdrop` : `hidden`} onClick={toggle}></div>
       <div className="dropdown">
         {label && <div className="dropdown__label">{label}</div>}
@@ -39,6 +39,7 @@ function DropdownButton({ style, icon, children, iconButton, arrow, state, toggl
         <>
           {before && <span className="dropdown__before">{before}</span>}
           <span className="dropdown__value">{children}</span>
+
           {after && <span>{after}</span>}
         </>
       )}

@@ -1,20 +1,21 @@
 import { useState } from "react";
 import classes from "./TransferModal.module.scss";
-import { RiArrowDownLine, RiContactsBookLine, RiBankLine, RiBankCardLine, RiMoreFill, RiArrowRightLine } from "@remixicon/react";
-import Dropdown from "./Dropdown";
-import ImageIcon from "./ImageIcon";
-import Segment from "./Segment";
-import userdata from "./../database/userdata.json";
-import getSymbol from "../utils/getSymbol";
-import Button from "./Button";
-import contacts from "./../database/contacts.json";
-import countries from "./../database/countries.json";
-import Input from "./Input";
+import { RiContactsBookLine, RiBankLine, RiBankCardLine, RiArrowRightLine } from "@remixicon/react";
+import Dropdown from "../shared/Dropdown";
+import ImageIcon from "../shared/ImageIcon";
+// import Segment from "../shared/Segment";
+import userdata from "../../database/userdata.json";
+import getSymbol from "../../utils/getSymbol";
+import Button from "../shared/Button";
+import contacts from "../../database/contacts.json";
+import countries from "../../database/countries.json";
+import Input from "../shared/Input";
 import { v4 as uuidv4 } from "uuid";
 import { toast, Bounce } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { addTransaction } from "./../store/transactionsSlice";
-import { updateBalance } from "../store/userSlice";
+import { addTransaction } from "../../store/transactionsSlice";
+import { updateBalance } from "../../store/userSlice";
+import SearchInput from "../shared/SearchInput";
 
 export default function TransferModal({ handler }) {
   const currencyDropdownInitial = [
@@ -31,7 +32,7 @@ export default function TransferModal({ handler }) {
       id: "usd-account",
       name: "USD Account",
       action: () => handleAccountsDropdown("usd-account"),
-      before: <ImageIcon image="/images/us-flag.png" size={{ width: "24px", height: "24px" }} title="USD Account" />,
+      before: <ImageIcon image="/images/usd.png" size={{ width: "24px", height: "24px" }} title="USD Account" />,
       after: `${getSymbol("USD")} ${getAccountData("usd-account").balance}`,
       active: true,
     },
@@ -39,13 +40,20 @@ export default function TransferModal({ handler }) {
       id: "eur-account",
       name: "EUR Account",
       action: () => handleAccountsDropdown("eur-account"),
-      before: <ImageIcon image="/images/eu-flag.png" size={{ width: "24px", height: "24px" }} title="EUR Account" />,
+      before: <ImageIcon image="/images/eur.png" size={{ width: "24px", height: "24px" }} title="EUR Account" />,
       after: `${getSymbol("EUR")} ${getAccountData("eur-account").balance}`,
       active: false,
     },
   ];
 
+  const recipientDropdownInitial = [
+    { id: "contacts", name: "My Contacts", action: () => handleRecipientDropdown("contacts"), before: <RiContactsBookLine />, after: null, active: true },
+    { id: "bank", name: "Bank Recipient", action: () => handleRecipientDropdown("bank"), before: <RiBankLine />, after: null, active: false },
+    { id: "card", name: "Card Recipient", action: () => handleRecipientDropdown("card"), before: <RiBankCardLine />, after: null, active: false },
+  ];
+
   const [accountsDropdownState, setAccountsDropdownState] = useState({ data: accountsDropdownInitial, visibility: false });
+  const [recipientDropdownState, setRecipientDropdownState] = useState({ data: recipientDropdownInitial, visibility: false });
   const [currencyDropdownState, setCurrencyDropdownState] = useState({ data: currencyDropdownInitial, visibility: false });
   const [symbol, setSymbol] = useState(getSymbol(currencyDropdownInitial[0].id.toUpperCase()));
 
@@ -88,26 +96,26 @@ export default function TransferModal({ handler }) {
     });
   }
 
-  const recipientSegmentData = [
-    {
-      id: "contacts",
-      name: "My Contacts",
-      icon: <RiContactsBookLine />,
-      active: true,
-    },
-    {
-      id: "bank",
-      name: "Bank Recipient",
-      icon: <RiBankLine />,
-      active: false,
-    },
-    {
-      id: "card",
-      name: "Card Recipient",
-      icon: <RiBankCardLine />,
-      active: false,
-    },
-  ];
+  // const recipientSegmentData = [
+  //   {
+  //     id: "contacts",
+  //     name: "My Contacts",
+  //     icon: <RiContactsBookLine />,
+  //     active: true,
+  //   },
+  //   {
+  //     id: "bank",
+  //     name: "Bank Recipient",
+  //     icon: <RiBankLine />,
+  //     active: false,
+  //   },
+  //   {
+  //     id: "card",
+  //     name: "Card Recipient",
+  //     icon: <RiBankCardLine />,
+  //     active: false,
+  //   },
+  // ];
 
   const recipientComponents = {
     contacts: <ContactsRecipient />,
@@ -115,18 +123,18 @@ export default function TransferModal({ handler }) {
     card: <CardRecipient />,
   };
 
-  const [recipientSegment, setRecipientSegment] = useState(recipientSegmentData);
+  // const [recipientSegment, setRecipientSegment] = useState(recipientSegmentData);
   const [recipient, setRecipient] = useState(recipientComponents.contacts);
 
-  function handleRecipientSegment(event, id) {
-    const newState = recipientSegment.map((segment) => {
-      return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
-    });
+  // function handleRecipientSegment(event, id) {
+  //   const newState = recipientSegment.map((segment) => {
+  //     return segment.id === id ? { ...segment, active: true } : { ...segment, active: false };
+  //   });
 
-    setRecipientSegment(newState);
-    setRecipient(recipientComponents[id]);
-    console.log(id);
-  }
+  //   setRecipientSegment(newState);
+  //   setRecipient(recipientComponents[id]);
+  //   console.log(id);
+  // }
 
   const initialFormData = {
     amount: "",
@@ -190,7 +198,7 @@ export default function TransferModal({ handler }) {
       // toast("Transfer successfully sent!");
       toast.success("Transfer successfully sent!", {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -220,7 +228,7 @@ export default function TransferModal({ handler }) {
   }
 
   function insertNewTransaction() {
-    const preparedTransation = {
+    const preparedTransaction = {
       id: formData.id,
       amount: parseFloat(formData.amount).toFixed(2),
       currency: formData.currency,
@@ -232,51 +240,63 @@ export default function TransferModal({ handler }) {
       status: "pending",
     };
 
-    dispatch(addTransaction(preparedTransation));
-    dispatch(updateBalance({ account: formData.transfer_from, currency: formData.currency, amount: preparedTransation.amount }));
+    dispatch(addTransaction(preparedTransaction));
+    dispatch(updateBalance({ account: formData.transfer_from, currency: formData.currency, amount: preparedTransaction.amount }));
   }
 
   // useEffect(() => {
   //   console.log(formData);
   // }, [formData]);
 
+  function handleRecipientDropdown(id) {
+    setRecipientDropdownState((prev) => {
+      const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
+      return { data: newData, visibility: !prev.visibility };
+    });
+    setRecipient(recipientComponents[id]);
+  }
+
+  function toggleRecipientDropdown() {
+    setRecipientDropdownState((prev) => ({ ...prev, visibility: !prev.visibility }));
+  }
+
   return (
     <>
       <div className={classes.transfer_from_container}>
-        <div className={classes.amout_container}>
+        <div className={classes.amount_container}>
           <div className={classes.label}>Amount</div>
           <div className={classes.input}>
             <span className={classes.symbol}>{symbol}</span>
             <input className={classes.amount_input} type="number" placeholder="0.00" value={formData.amount} onChange={(e) => handleForm(e.target.value, "amount")} />
-            <Dropdown options={currencyDropdownState} toggle={toggleCurrencyDropdown} align="left" />
+            <Dropdown style="secondary" options={currencyDropdownState} toggle={toggleCurrencyDropdown} align="left" />
           </div>
         </div>
 
         <div className={classes.from_container}>
           <div className={classes.label}>Transfer From</div>
           <div className={classes.input}>
-            <Dropdown options={accountsDropdownState} toggle={toggleAccountsDropdown} width="100%" />
+            <Dropdown style="secondary" options={accountsDropdownState} toggle={toggleAccountsDropdown} width="100%" />
           </div>
         </div>
       </div>
-      <div className={classes.arrow_inside}>
-        <RiArrowDownLine />
-      </div>
+
       <div className={classes.transfer_to_container}>
-        <div className={classes.amout_container}>
+        <div>
           <div className={classes.label}>Transfer To</div>
-          <div className="pt-6">
-            <Segment buttons={recipientSegment} handler={handleRecipientSegment} size="l" type="primary" />
+
+          <div className={classes.recipient_container}>
+            <Dropdown style="secondary" options={recipientDropdownState} toggle={toggleRecipientDropdown} />
+            {recipientDropdownState.data.find((item) => item.active).id === "contacts" ? <SearchInput /> : null}
           </div>
           <div>{recipient}</div>
         </div>
       </div>
-      <div className="flex items-center justify-between mt-6">
-        <Button size="l" type="secondary" action={handler}>
+      <div>
+        {/* <Button size="l" type="secondary" action={handler}>
           Cancel
-        </Button>
-        <Button size="l" type="primary" after={<RiArrowRightLine />} action={submitForm}>
-          Continue
+        </Button> */}
+        <Button style="primary" after={<RiArrowRightLine />} action={submitForm} width="100%">
+          Send Money
         </Button>
       </div>
     </>
@@ -292,19 +312,19 @@ function ContactsRecipient() {
       </div>
     );
   });
-  const moreButton = (
-    <div className={classes.contact_item} key={"more-button"} onClick={() => alert("more")}>
-      <div className={classes.contact_item_more}>
-        <RiMoreFill />
-      </div>
-      <div className={classes.contact_item_name}>More</div>
-    </div>
-  );
+  // const moreButton = (
+  //   <div className={classes.contact_item} key={"more-button"} onClick={() => alert("more")}>
+  //     <div className={classes.contact_item_more}>
+  //       <RiMoreFill />
+  //     </div>
+  //     {/* <div className={classes.contact_item_name}>More</div> */}
+  //   </div>
+  // );
 
   return (
     <div className={classes.contacts}>
       {myContacts}
-      {moreButton}
+      {/* {moreButton} */}
     </div>
   );
 }
@@ -351,7 +371,7 @@ function BankRecipient() {
   return (
     <div className={classes.bank_form_container}>
       <div>
-        <Dropdown options={countriesDropdown} toggle={toggleCountriesDropdown} listHeight={200} label="Country" />
+        <Dropdown style="secondary" options={countriesDropdown} toggle={toggleCountriesDropdown} listHeight={200} label="Country" />
         <Input label="Account Number" placeholder="AB 0000 0000 0000 0000 0000 0000" />
       </div>
       <div>

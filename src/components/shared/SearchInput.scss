@@ -7,7 +7,6 @@
   flex-grow: 1;
 
   &__input {
-    // flex-grow: 1;
     width: 100%;
   }
 }
@@ -15,7 +14,7 @@
   position: absolute;
   left: 16px;
 }
-.input {
+.search {
   padding-left: 3rem;
 }
 .search_mobile__container {

@@ -90,7 +90,7 @@
   }
 
   &__before {
-    margin-right: 1rem; // 16px -> 1rem
+    // margin-right: 1rem; // 16px -> 1rem
     img {
       margin-top: -0.25rem; // -4px -> -0.25rem
     }
@@ -102,13 +102,18 @@
   &__value {
     flex-grow: 1;
     text-align: left;
-    padding-left: 1rem; // 16px -> 1rem
+    padding-left: 0.5rem; // 16px -> 1rem
   }
 
   &__arrow_down {
     transition: 0.1s ease-in-out;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   &__arrow_up {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: -0.25rem;
     transition: 0.1s ease-in-out;
     transform: rotate(180deg) translateY(-0.1875rem); // -3px -> -0.1875rem
   }

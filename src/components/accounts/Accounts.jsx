@@ -1,3 +1,4 @@
+import TransferModal from "../modals/TransferModal";
 import AccountsButtons from "./AccountsButtons";
 import AccountsAmount from "./AccountsAmount";
 import AccountsHeader from "./AccountsHeader";
@@ -67,7 +68,9 @@ export default function Accounts({ userdata }) {
       <Modal visibility={modalsState.accounts} handler={() => toggleModal("accounts")} title="Accounts">
         <AccountsListModal accounts={userdata.accounts} active={selectedAccount} handler={handleAccountsModal} />
       </Modal>
-      <Modal visibility={modalsState.transfer} handler={() => toggleModal("transfer")} title="Transfer"></Modal>
+      <Modal visibility={modalsState.transfer} handler={() => toggleModal("transfer")} title="Transfer">
+        <TransferModal handler={() => toggleModal("transfer")} />
+      </Modal>
       <Modal visibility={modalsState.request} handler={() => toggleModal("request")} title="Request"></Modal>
       <Modal visibility={modalsState.exchange} handler={() => toggleModal("exchange")} title="Exchange"></Modal>
       <Modal visibility={modalsState.more} handler={() => toggleModal("more")} title="More"></Modal>
