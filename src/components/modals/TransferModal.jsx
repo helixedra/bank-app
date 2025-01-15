@@ -1,6 +1,11 @@
 import { useState } from "react";
 import classes from "./TransferModal.module.scss";
-import { RiContactsBookLine, RiBankLine, RiBankCardLine, RiArrowRightLine } from "@remixicon/react";
+import {
+  RiContactsBookLine,
+  RiBankLine,
+  RiBankCardLine,
+  RiArrowRightLine,
+} from "@remixicon/react";
 import Dropdown from "../shared/Dropdown";
 import ImageIcon from "../shared/ImageIcon";
 // import Segment from "../shared/Segment";
@@ -19,8 +24,22 @@ import SearchInput from "../shared/SearchInput";
 
 export default function TransferModal({ handler }) {
   const currencyDropdownInitial = [
-    { id: "usd", name: "USD", action: () => handleCurrencyDropdown("usd"), before: null, after: null, active: true },
-    { id: "eur", name: "EUR", action: () => handleCurrencyDropdown("eur"), before: null, after: null, active: false },
+    {
+      id: "usd",
+      name: "USD",
+      action: () => handleCurrencyDropdown("usd"),
+      before: null,
+      after: null,
+      active: true,
+    },
+    {
+      id: "eur",
+      name: "EUR",
+      action: () => handleCurrencyDropdown("eur"),
+      before: null,
+      after: null,
+      active: false,
+    },
   ];
 
   function getAccountData(id) {
@@ -32,7 +51,13 @@ export default function TransferModal({ handler }) {
       id: "usd-account",
       name: "USD Account",
       action: () => handleAccountsDropdown("usd-account"),
-      before: <ImageIcon image="/images/usd.png" size={{ width: "24px", height: "24px" }} title="USD Account" />,
+      before: (
+        <ImageIcon
+          image="/images/usd.png"
+          size={{ width: "24px", height: "24px" }}
+          title="USD Account"
+        />
+      ),
       after: `${getSymbol("USD")} ${getAccountData("usd-account").balance}`,
       active: true,
     },
@@ -40,27 +65,67 @@ export default function TransferModal({ handler }) {
       id: "eur-account",
       name: "EUR Account",
       action: () => handleAccountsDropdown("eur-account"),
-      before: <ImageIcon image="/images/eur.png" size={{ width: "24px", height: "24px" }} title="EUR Account" />,
+      before: (
+        <ImageIcon
+          image="/images/eur.png"
+          size={{ width: "24px", height: "24px" }}
+          title="EUR Account"
+        />
+      ),
       after: `${getSymbol("EUR")} ${getAccountData("eur-account").balance}`,
       active: false,
     },
   ];
 
   const recipientDropdownInitial = [
-    { id: "contacts", name: "My Contacts", action: () => handleRecipientDropdown("contacts"), before: <RiContactsBookLine />, after: null, active: true },
-    { id: "bank", name: "Bank Recipient", action: () => handleRecipientDropdown("bank"), before: <RiBankLine />, after: null, active: false },
-    { id: "card", name: "Card Recipient", action: () => handleRecipientDropdown("card"), before: <RiBankCardLine />, after: null, active: false },
+    {
+      id: "contacts",
+      name: "My Contacts",
+      action: () => handleRecipientDropdown("contacts"),
+      before: <RiContactsBookLine />,
+      after: null,
+      active: true,
+    },
+    {
+      id: "bank",
+      name: "Bank Recipient",
+      action: () => handleRecipientDropdown("bank"),
+      before: <RiBankLine />,
+      after: null,
+      active: false,
+    },
+    {
+      id: "card",
+      name: "Card Recipient",
+      action: () => handleRecipientDropdown("card"),
+      before: <RiBankCardLine />,
+      after: null,
+      active: false,
+    },
   ];
 
-  const [accountsDropdownState, setAccountsDropdownState] = useState({ data: accountsDropdownInitial, visibility: false });
-  const [recipientDropdownState, setRecipientDropdownState] = useState({ data: recipientDropdownInitial, visibility: false });
-  const [currencyDropdownState, setCurrencyDropdownState] = useState({ data: currencyDropdownInitial, visibility: false });
-  const [symbol, setSymbol] = useState(getSymbol(currencyDropdownInitial[0].id.toUpperCase()));
+  const [accountsDropdownState, setAccountsDropdownState] = useState({
+    data: accountsDropdownInitial,
+    visibility: false,
+  });
+  const [recipientDropdownState, setRecipientDropdownState] = useState({
+    data: recipientDropdownInitial,
+    visibility: false,
+  });
+  const [currencyDropdownState, setCurrencyDropdownState] = useState({
+    data: currencyDropdownInitial,
+    visibility: false,
+  });
+  const [symbol, setSymbol] = useState(
+    getSymbol(currencyDropdownInitial[0].id.toUpperCase())
+  );
 
   function handleAccountsDropdown(id) {
     // Update state
     setAccountsDropdownState((prev) => {
-      const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
+      const newData = prev.data.map((item) =>
+        item.id === id ? { ...item, active: true } : { ...item, active: false }
+      );
       const newVisibility = !prev.visibility;
       return { data: newData, visibility: newVisibility };
     });
@@ -74,7 +139,9 @@ export default function TransferModal({ handler }) {
 
     // Update state
     setCurrencyDropdownState((prev) => {
-      const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
+      const newData = prev.data.map((item) =>
+        item.id === id ? { ...item, active: true } : { ...item, active: false }
+      );
       const newVisibility = !prev.visibility;
       return { data: newData, visibility: newVisibility };
     });
@@ -241,7 +308,13 @@ export default function TransferModal({ handler }) {
     };
 
     dispatch(addTransaction(preparedTransaction));
-    dispatch(updateBalance({ account: formData.transfer_from, currency: formData.currency, amount: preparedTransaction.amount }));
+    dispatch(
+      updateBalance({
+        account: formData.transfer_from,
+        currency: formData.currency,
+        amount: preparedTransaction.amount,
+      })
+    );
   }
 
   // useEffect(() => {
@@ -250,14 +323,19 @@ export default function TransferModal({ handler }) {
 
   function handleRecipientDropdown(id) {
     setRecipientDropdownState((prev) => {
-      const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
+      const newData = prev.data.map((item) =>
+        item.id === id ? { ...item, active: true } : { ...item, active: false }
+      );
       return { data: newData, visibility: !prev.visibility };
     });
     setRecipient(recipientComponents[id]);
   }
 
   function toggleRecipientDropdown() {
-    setRecipientDropdownState((prev) => ({ ...prev, visibility: !prev.visibility }));
+    setRecipientDropdownState((prev) => ({
+      ...prev,
+      visibility: !prev.visibility,
+    }));
   }
 
   return (
@@ -267,15 +345,31 @@ export default function TransferModal({ handler }) {
           <div className={classes.label}>Amount</div>
           <div className={classes.input}>
             <span className={classes.symbol}>{symbol}</span>
-            <input className={classes.amount_input} type="number" placeholder="0.00" value={formData.amount} onChange={(e) => handleForm(e.target.value, "amount")} />
-            <Dropdown style="secondary" options={currencyDropdownState} toggle={toggleCurrencyDropdown} align="left" />
+            <input
+              className={classes.amount_input}
+              type="number"
+              placeholder="0.00"
+              value={formData.amount}
+              onChange={(e) => handleForm(e.target.value, "amount")}
+            />
+            <Dropdown
+              style="secondary"
+              options={currencyDropdownState}
+              toggle={toggleCurrencyDropdown}
+              align="left"
+            />
           </div>
         </div>
 
         <div className={classes.from_container}>
           <div className={classes.label}>Transfer From</div>
           <div className={classes.input}>
-            <Dropdown style="secondary" options={accountsDropdownState} toggle={toggleAccountsDropdown} width="100%" />
+            <Dropdown
+              style="secondary"
+              options={accountsDropdownState}
+              toggle={toggleAccountsDropdown}
+              width="100%"
+            />
           </div>
         </div>
       </div>
@@ -285,8 +379,15 @@ export default function TransferModal({ handler }) {
           <div className={classes.label}>Transfer To</div>
 
           <div className={classes.recipient_container}>
-            <Dropdown style="secondary" options={recipientDropdownState} toggle={toggleRecipientDropdown} />
-            {recipientDropdownState.data.find((item) => item.active).id === "contacts" ? <SearchInput /> : null}
+            <Dropdown
+              style="secondary"
+              options={recipientDropdownState}
+              toggle={toggleRecipientDropdown}
+            />
+            {recipientDropdownState.data.find((item) => item.active).id ===
+            "contacts" ? (
+              <SearchInput />
+            ) : null}
           </div>
           <div>{recipient}</div>
         </div>
@@ -295,7 +396,12 @@ export default function TransferModal({ handler }) {
         {/* <Button size="l" type="secondary" action={handler}>
           Cancel
         </Button> */}
-        <Button style="primary" after={<RiArrowRightLine />} action={submitForm} width="100%">
+        <Button
+          style="primary"
+          after={<RiArrowRightLine />}
+          action={submitForm}
+          width="100%"
+        >
           Send Money
         </Button>
       </div>
@@ -306,8 +412,15 @@ export default function TransferModal({ handler }) {
 function ContactsRecipient() {
   const myContacts = contacts.slice(0, 6).map((contact) => {
     return (
-      <div className={classes.contact_item} key={contact.id} onClick={() => alert()}>
-        <div className={classes.contact_item_userpic} style={{ backgroundImage: `url('${contact.userpic}')` }}></div>
+      <div
+        className={classes.contact_item}
+        key={contact.id}
+        onClick={() => alert()}
+      >
+        <div
+          className={classes.contact_item_userpic}
+          style={{ backgroundImage: `url('${contact.userpic}')` }}
+        ></div>
         <div className={classes.contact_item_name}>{contact.name}</div>
       </div>
     );
@@ -329,7 +442,10 @@ function ContactsRecipient() {
   );
 }
 function BankRecipient() {
-  const [bankRecipient, setBankRecipient] = useState({ first_name: "", last_name: "" });
+  const [bankRecipient, setBankRecipient] = useState({
+    first_name: "",
+    last_name: "",
+  });
 
   function handleBankRecipient(value, name) {
     setBankRecipient((prev) => {
@@ -349,13 +465,26 @@ function BankRecipient() {
     };
   });
 
-  const countriesDropdownDataInitial = [{ id: 0, name: "Select country", action: () => handleCountriesDropdown(0), active: true }, ...countriesDropdownData];
+  const countriesDropdownDataInitial = [
+    {
+      id: 0,
+      name: "Select country",
+      action: () => handleCountriesDropdown(0),
+      active: true,
+    },
+    ...countriesDropdownData,
+  ];
 
-  const [countriesDropdown, setCountriesDropdown] = useState({ data: countriesDropdownDataInitial, visibility: false });
+  const [countriesDropdown, setCountriesDropdown] = useState({
+    data: countriesDropdownDataInitial,
+    visibility: false,
+  });
 
   function handleCountriesDropdown(id) {
     setCountriesDropdown((prev) => {
-      const newData = prev.data.map((item) => (item.id === id ? { ...item, active: true } : { ...item, active: false }));
+      const newData = prev.data.map((item) =>
+        item.id === id ? { ...item, active: true } : { ...item, active: false }
+      );
       const newVisibility = !prev.visibility;
       return { data: newData, visibility: newVisibility };
     });
@@ -371,12 +500,31 @@ function BankRecipient() {
   return (
     <div className={classes.bank_form_container}>
       <div>
-        <Dropdown style="secondary" options={countriesDropdown} toggle={toggleCountriesDropdown} listHeight={200} label="Country" />
-        <Input label="Account Number" placeholder="AB 0000 0000 0000 0000 0000 0000" />
+        <Dropdown
+          style="secondary"
+          options={countriesDropdown}
+          toggle={toggleCountriesDropdown}
+          listHeight={200}
+          label="Country"
+        />
+        <Input
+          label="Account Number"
+          placeholder="AB 0000 0000 0000 0000 0000 0000"
+        />
       </div>
       <div>
-        <Input label="First Name" value={bankRecipient.first_name} handler={handleBankRecipient} name="first_name" />
-        <Input label="Last Name" value={bankRecipient.last_name} handler={handleBankRecipient} name="last_name" />
+        <Input
+          label="First Name"
+          value={bankRecipient.first_name}
+          handler={handleBankRecipient}
+          name="first_name"
+        />
+        <Input
+          label="Last Name"
+          value={bankRecipient.last_name}
+          handler={handleBankRecipient}
+          name="last_name"
+        />
       </div>
     </div>
   );
@@ -386,7 +534,11 @@ function CardRecipient() {
   return (
     <div className={classes.bank_form_container}>
       <div>
-        <Input type="number" label="Card Number" placeholder="0000 0000 0000 0000" />
+        <Input
+          type="number"
+          label="Card Number"
+          placeholder="0000 0000 0000 0000"
+        />
       </div>
       <div>
         <Input label="First Name" />

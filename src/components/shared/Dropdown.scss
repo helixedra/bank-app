@@ -62,7 +62,12 @@
     &__border {
       height: 0.0625rem; // 1px -> 0.0625rem
       width: 100%;
-      background-color: $dark-10;
+      [data-theme="light"] & {
+        background-color: $dark-10;
+      }
+      [data-theme="dark"] & {
+        background-color: $dark-60;
+      }
       margin-top: 0.5rem; // 8px -> 0.5rem
       margin-bottom: 0.5rem; // 8px -> 0.5rem
     }
